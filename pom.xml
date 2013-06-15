@@ -51,11 +51,6 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.5</version>
         </dependency>
-        <dependency>
-            <groupId>jencks</groupId>
-            <artifactId>jencks-all</artifactId>
-            <version>1.0</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -82,7 +77,6 @@
             </plugin>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
-
                 <executions>
                     <execution>
                         <phase>package</phase>

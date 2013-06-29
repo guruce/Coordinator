@@ -1,8 +1,10 @@
 .idea
 target
-127.0.1.1.tm4.epoch
+127.0.1.1.tm*
+127.0.1.1.tm2.epoch
 Coordinator.iml
 Coordinator.ipr
 Coordinator.iws
+tmlog*
 tmlog4.log
 .git

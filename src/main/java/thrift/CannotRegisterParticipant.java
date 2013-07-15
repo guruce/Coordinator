@@ -4,7 +4,7 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-package acidoth.thrift.xa;
+package thrift;
 
 import org.apache.thrift.scheme.IScheme;
 import org.apache.thrift.scheme.SchemeFactory;
@@ -30,8 +30,8 @@ import java.util.Arrays;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class UnknownTransaction extends TException implements org.apache.thrift.TBase<UnknownTransaction, UnknownTransaction._Fields>, java.io.Serializable, Cloneable {
-  private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("UnknownTransaction");
+public class CannotRegisterParticipant extends TException implements org.apache.thrift.TBase<CannotRegisterParticipant, CannotRegisterParticipant._Fields>, java.io.Serializable, Cloneable {
+  private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("CannotRegisterParticipant");
 
   private static final org.apache.thrift.protocol.TField CODE_FIELD_DESC = new org.apache.thrift.protocol.TField("code", org.apache.thrift.protocol.TType.STRING, (short)1);
   private static final org.apache.thrift.protocol.TField SUBCODE_FIELD_DESC = new org.apache.thrift.protocol.TField("subcode", org.apache.thrift.protocol.TType.STRING, (short)2);
@@ -40,8 +40,8 @@ public class UnknownTransaction extends TException implements org.apache.thrift.
 
   private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
   static {
-    schemes.put(StandardScheme.class, new UnknownTransactionStandardSchemeFactory());
-    schemes.put(TupleScheme.class, new UnknownTransactionTupleSchemeFactory());
+    schemes.put(StandardScheme.class, new CannotRegisterParticipantStandardSchemeFactory());
+    schemes.put(TupleScheme.class, new CannotRegisterParticipantTupleSchemeFactory());
   }
 
   public String code; // required
@@ -129,13 +129,13 @@ public class UnknownTransaction extends TException implements org.apache.thrift.
     tmpMap.put(_Fields.DETAIL, new org.apache.thrift.meta_data.FieldMetaData("detail", org.apache.thrift.TFieldRequirementType.REQUIRED, 
         new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
     metaDataMap = Collections.unmodifiableMap(tmpMap);
-    org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(UnknownTransaction.class, metaDataMap);
+    org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(CannotRegisterParticipant.class, metaDataMap);
   }
 
-  public UnknownTransaction() {
+  public CannotRegisterParticipant() {
   }
 
-  public UnknownTransaction(
+  public CannotRegisterParticipant(
     String code,
     String subcode,
     String reason,
@@ -151,7 +151,7 @@ public class UnknownTransaction extends TException implements org.apache.thrift.
   /**
    * Performs a deep copy on <i>other</i>.
    */
-  public UnknownTransaction(UnknownTransaction other) {
+  public CannotRegisterParticipant(CannotRegisterParticipant other) {
     if (other.isSetCode()) {
       this.code = other.code;
     }
@@ -166,8 +166,8 @@ public class UnknownTransaction extends TException implements org.apache.thrift.
     }
   }
 
-  public UnknownTransaction deepCopy() {
-    return new UnknownTransaction(this);
+  public CannotRegisterParticipant deepCopy() {
+    return new CannotRegisterParticipant(this);
   }
 
   @Override
@@ -182,7 +182,7 @@ public class UnknownTransaction extends TException implements org.apache.thrift.
     return this.code;
   }
 
-  public UnknownTransaction setCode(String code) {
+  public CannotRegisterParticipant setCode(String code) {
     this.code = code;
     return this;
   }
@@ -206,7 +206,7 @@ public class UnknownTransaction extends TException implements org.apache.thrift.
     return this.subcode;
   }
 
-  public UnknownTransaction setSubcode(String subcode) {
+  public CannotRegisterParticipant setSubcode(String subcode) {
     this.subcode = subcode;
     return this;
   }
@@ -230,7 +230,7 @@ public class UnknownTransaction extends TException implements org.apache.thrift.
     return this.reason;
   }
 
-  public UnknownTransaction setReason(String reason) {
+  public CannotRegisterParticipant setReason(String reason) {
     this.reason = reason;
     return this;
   }
@@ -254,7 +254,7 @@ public class UnknownTransaction extends TException implements org.apache.thrift.
     return this.detail;
   }
 
-  public UnknownTransaction setDetail(String detail) {
+  public CannotRegisterParticipant setDetail(String detail) {
     this.detail = detail;
     return this;
   }
@@ -352,12 +352,12 @@ public class UnknownTransaction extends TException implements org.apache.thrift.
   public boolean equals(Object that) {
     if (that == null)
       return false;
-    if (that instanceof UnknownTransaction)
-      return this.equals((UnknownTransaction)that);
+    if (that instanceof CannotRegisterParticipant)
+      return this.equals((CannotRegisterParticipant)that);
     return false;
   }
 
-  public boolean equals(UnknownTransaction that) {
+  public boolean equals(CannotRegisterParticipant that) {
     if (that == null)
       return false;
 
@@ -405,13 +405,13 @@ public class UnknownTransaction extends TException implements org.apache.thrift.
     return 0;
   }
 
-  public int compareTo(UnknownTransaction other) {
+  public int compareTo(CannotRegisterParticipant other) {
     if (!getClass().equals(other.getClass())) {
       return getClass().getName().compareTo(other.getClass().getName());
     }
 
     int lastComparison = 0;
-    UnknownTransaction typedOther = (UnknownTransaction)other;
+    CannotRegisterParticipant typedOther = (CannotRegisterParticipant)other;
 
     lastComparison = Boolean.valueOf(isSetCode()).compareTo(typedOther.isSetCode());
     if (lastComparison != 0) {
@@ -460,17 +460,17 @@ public class UnknownTransaction extends TException implements org.apache.thrift.
     return _Fields.findByThriftId(fieldId);
   }
 
-  public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+  public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
     schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
   }
 
-  public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+  public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
     schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
   }
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder("UnknownTransaction(");
+    StringBuilder sb = new StringBuilder("CannotRegisterParticipant(");
     boolean first = true;
 
     sb.append("code:");
@@ -508,19 +508,19 @@ public class UnknownTransaction extends TException implements org.apache.thrift.
     return sb.toString();
   }
 
-  public void validate() throws org.apache.thrift.TException {
+  public void validate() throws TException {
     // check for required fields
     if (code == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'code' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'code' was not present! Struct: " + toString());
     }
     if (subcode == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'subcode' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'subcode' was not present! Struct: " + toString());
     }
     if (reason == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'reason' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'reason' was not present! Struct: " + toString());
     }
     if (detail == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'detail' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'detail' was not present! Struct: " + toString());
     }
     // check for sub-struct validity
   }
@@ -528,7 +528,7 @@ public class UnknownTransaction extends TException implements org.apache.thrift.
   private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
     try {
       write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-    } catch (org.apache.thrift.TException te) {
+    } catch (TException te) {
       throw new java.io.IOException(te);
     }
   }
@@ -536,20 +536,20 @@ public class UnknownTransaction extends TException implements org.apache.thrift.
   private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
     try {
       read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-    } catch (org.apache.thrift.TException te) {
+    } catch (TException te) {
       throw new java.io.IOException(te);
     }
   }
 
-  private static class UnknownTransactionStandardSchemeFactory implements SchemeFactory {
-    public UnknownTransactionStandardScheme getScheme() {
-      return new UnknownTransactionStandardScheme();
+  private static class CannotRegisterParticipantStandardSchemeFactory implements SchemeFactory {
+    public CannotRegisterParticipantStandardScheme getScheme() {
+      return new CannotRegisterParticipantStandardScheme();
     }
   }
 
-  private static class UnknownTransactionStandardScheme extends StandardScheme<UnknownTransaction> {
+  private static class CannotRegisterParticipantStandardScheme extends StandardScheme<CannotRegisterParticipant> {
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot, UnknownTransaction struct) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot, CannotRegisterParticipant struct) throws TException {
       org.apache.thrift.protocol.TField schemeField;
       iprot.readStructBegin();
       while (true)
@@ -602,7 +602,7 @@ public class UnknownTransaction extends TException implements org.apache.thrift.
       struct.validate();
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot, UnknownTransaction struct) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot, CannotRegisterParticipant struct) throws TException {
       struct.validate();
 
       oprot.writeStructBegin(STRUCT_DESC);
@@ -632,16 +632,16 @@ public class UnknownTransaction extends TException implements org.apache.thrift.
 
   }
 
-  private static class UnknownTransactionTupleSchemeFactory implements SchemeFactory {
-    public UnknownTransactionTupleScheme getScheme() {
-      return new UnknownTransactionTupleScheme();
+  private static class CannotRegisterParticipantTupleSchemeFactory implements SchemeFactory {
+    public CannotRegisterParticipantTupleScheme getScheme() {
+      return new CannotRegisterParticipantTupleScheme();
     }
   }
 
-  private static class UnknownTransactionTupleScheme extends TupleScheme<UnknownTransaction> {
+  private static class CannotRegisterParticipantTupleScheme extends TupleScheme<CannotRegisterParticipant> {
 
     @Override
-    public void write(org.apache.thrift.protocol.TProtocol prot, UnknownTransaction struct) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol prot, CannotRegisterParticipant struct) throws TException {
       TTupleProtocol oprot = (TTupleProtocol) prot;
       oprot.writeString(struct.code);
       oprot.writeString(struct.subcode);
@@ -650,7 +650,7 @@ public class UnknownTransaction extends TException implements org.apache.thrift.
     }
 
     @Override
-    public void read(org.apache.thrift.protocol.TProtocol prot, UnknownTransaction struct) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol prot, CannotRegisterParticipant struct) throws TException {
       TTupleProtocol iprot = (TTupleProtocol) prot;
       struct.code = iprot.readString();
       struct.setCodeIsSet(true);

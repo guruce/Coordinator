@@ -4,14 +4,14 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-package acidoth.thrift.xa;
+package thrift;
 
 
 import java.util.Map;
 import java.util.HashMap;
 import org.apache.thrift.TEnum;
 
-public enum PCResponse implements org.apache.thrift.TEnum {
+public enum ServiceResponse implements TEnum {
   prepared(0),
   aborted(1),
   readOnly(2),
@@ -19,7 +19,7 @@ public enum PCResponse implements org.apache.thrift.TEnum {
 
   private final int value;
 
-  private PCResponse(int value) {
+  private ServiceResponse(int value) {
     this.value = value;
   }
 
@@ -34,7 +34,7 @@ public enum PCResponse implements org.apache.thrift.TEnum {
    * Find a the enum type by its integer value, as defined in the Thrift IDL.
    * @return null if the value is not found.
    */
-  public static PCResponse findByValue(int value) { 
+  public static ServiceResponse findByValue(int value) { 
     switch (value) {
       case 0:
         return prepared;

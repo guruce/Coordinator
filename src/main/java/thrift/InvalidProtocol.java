@@ -4,7 +4,7 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-package acidoth.thrift.xa;
+package thrift;
 
 import org.apache.thrift.scheme.IScheme;
 import org.apache.thrift.scheme.SchemeFactory;
@@ -30,31 +30,28 @@ import java.util.Arrays;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CannotRegisterParticipant extends TException implements org.apache.thrift.TBase<CannotRegisterParticipant, CannotRegisterParticipant._Fields>, java.io.Serializable, Cloneable {
-  private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("CannotRegisterParticipant");
+public class InvalidProtocol extends TException implements org.apache.thrift.TBase<InvalidProtocol, InvalidProtocol._Fields>, java.io.Serializable, Cloneable {
+  private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("InvalidProtocol");
 
   private static final org.apache.thrift.protocol.TField CODE_FIELD_DESC = new org.apache.thrift.protocol.TField("code", org.apache.thrift.protocol.TType.STRING, (short)1);
   private static final org.apache.thrift.protocol.TField SUBCODE_FIELD_DESC = new org.apache.thrift.protocol.TField("subcode", org.apache.thrift.protocol.TType.STRING, (short)2);
   private static final org.apache.thrift.protocol.TField REASON_FIELD_DESC = new org.apache.thrift.protocol.TField("reason", org.apache.thrift.protocol.TType.STRING, (short)3);
-  private static final org.apache.thrift.protocol.TField DETAIL_FIELD_DESC = new org.apache.thrift.protocol.TField("detail", org.apache.thrift.protocol.TType.STRING, (short)4);
 
   private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
   static {
-    schemes.put(StandardScheme.class, new CannotRegisterParticipantStandardSchemeFactory());
-    schemes.put(TupleScheme.class, new CannotRegisterParticipantTupleSchemeFactory());
+    schemes.put(StandardScheme.class, new InvalidProtocolStandardSchemeFactory());
+    schemes.put(TupleScheme.class, new InvalidProtocolTupleSchemeFactory());
   }
 
   public String code; // required
   public String subcode; // required
   public String reason; // required
-  public String detail; // required
 
   /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
   public enum _Fields implements org.apache.thrift.TFieldIdEnum {
     CODE((short)1, "code"),
     SUBCODE((short)2, "subcode"),
-    REASON((short)3, "reason"),
-    DETAIL((short)4, "detail");
+    REASON((short)3, "reason");
 
     private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
 
@@ -75,8 +72,6 @@ public class CannotRegisterParticipant extends TException implements org.apache.
           return SUBCODE;
         case 3: // REASON
           return REASON;
-        case 4: // DETAIL
-          return DETAIL;
         default:
           return null;
       }
@@ -126,32 +121,28 @@ public class CannotRegisterParticipant extends TException implements org.apache.
         new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
     tmpMap.put(_Fields.REASON, new org.apache.thrift.meta_data.FieldMetaData("reason", org.apache.thrift.TFieldRequirementType.REQUIRED, 
         new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
-    tmpMap.put(_Fields.DETAIL, new org.apache.thrift.meta_data.FieldMetaData("detail", org.apache.thrift.TFieldRequirementType.REQUIRED, 
-        new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
     metaDataMap = Collections.unmodifiableMap(tmpMap);
-    org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(CannotRegisterParticipant.class, metaDataMap);
+    org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(InvalidProtocol.class, metaDataMap);
   }
 
-  public CannotRegisterParticipant() {
+  public InvalidProtocol() {
   }
 
-  public CannotRegisterParticipant(
+  public InvalidProtocol(
     String code,
     String subcode,
-    String reason,
-    String detail)
+    String reason)
   {
     this();
     this.code = code;
     this.subcode = subcode;
     this.reason = reason;
-    this.detail = detail;
   }
 
   /**
    * Performs a deep copy on <i>other</i>.
    */
-  public CannotRegisterParticipant(CannotRegisterParticipant other) {
+  public InvalidProtocol(InvalidProtocol other) {
     if (other.isSetCode()) {
       this.code = other.code;
     }
@@ -161,13 +152,10 @@ public class CannotRegisterParticipant extends TException implements org.apache.
     if (other.isSetReason()) {
       this.reason = other.reason;
     }
-    if (other.isSetDetail()) {
-      this.detail = other.detail;
-    }
   }
 
-  public CannotRegisterParticipant deepCopy() {
-    return new CannotRegisterParticipant(this);
+  public InvalidProtocol deepCopy() {
+    return new InvalidProtocol(this);
   }
 
   @Override
@@ -175,14 +163,13 @@ public class CannotRegisterParticipant extends TException implements org.apache.
     this.code = null;
     this.subcode = null;
     this.reason = null;
-    this.detail = null;
   }
 
   public String getCode() {
     return this.code;
   }
 
-  public CannotRegisterParticipant setCode(String code) {
+  public InvalidProtocol setCode(String code) {
     this.code = code;
     return this;
   }
@@ -206,7 +193,7 @@ public class CannotRegisterParticipant extends TException implements org.apache.
     return this.subcode;
   }
 
-  public CannotRegisterParticipant setSubcode(String subcode) {
+  public InvalidProtocol setSubcode(String subcode) {
     this.subcode = subcode;
     return this;
   }
@@ -230,7 +217,7 @@ public class CannotRegisterParticipant extends TException implements org.apache.
     return this.reason;
   }
 
-  public CannotRegisterParticipant setReason(String reason) {
+  public InvalidProtocol setReason(String reason) {
     this.reason = reason;
     return this;
   }
@@ -247,30 +234,6 @@ public class CannotRegisterParticipant extends TException implements org.apache.
   public void setReasonIsSet(boolean value) {
     if (!value) {
       this.reason = null;
-    }
-  }
-
-  public String getDetail() {
-    return this.detail;
-  }
-
-  public CannotRegisterParticipant setDetail(String detail) {
-    this.detail = detail;
-    return this;
-  }
-
-  public void unsetDetail() {
-    this.detail = null;
-  }
-
-  /** Returns true if field detail is set (has been assigned a value) and false otherwise */
-  public boolean isSetDetail() {
-    return this.detail != null;
-  }
-
-  public void setDetailIsSet(boolean value) {
-    if (!value) {
-      this.detail = null;
     }
   }
 
@@ -300,14 +263,6 @@ public class CannotRegisterParticipant extends TException implements org.apache.
       }
       break;
 
-    case DETAIL:
-      if (value == null) {
-        unsetDetail();
-      } else {
-        setDetail((String)value);
-      }
-      break;
-
     }
   }
 
@@ -321,9 +276,6 @@ public class CannotRegisterParticipant extends TException implements org.apache.
 
     case REASON:
       return getReason();
-
-    case DETAIL:
-      return getDetail();
 
     }
     throw new IllegalStateException();
@@ -342,8 +294,6 @@ public class CannotRegisterParticipant extends TException implements org.apache.
       return isSetSubcode();
     case REASON:
       return isSetReason();
-    case DETAIL:
-      return isSetDetail();
     }
     throw new IllegalStateException();
   }
@@ -352,12 +302,12 @@ public class CannotRegisterParticipant extends TException implements org.apache.
   public boolean equals(Object that) {
     if (that == null)
       return false;
-    if (that instanceof CannotRegisterParticipant)
-      return this.equals((CannotRegisterParticipant)that);
+    if (that instanceof InvalidProtocol)
+      return this.equals((InvalidProtocol)that);
     return false;
   }
 
-  public boolean equals(CannotRegisterParticipant that) {
+  public boolean equals(InvalidProtocol that) {
     if (that == null)
       return false;
 
@@ -388,15 +338,6 @@ public class CannotRegisterParticipant extends TException implements org.apache.
         return false;
     }
 
-    boolean this_present_detail = true && this.isSetDetail();
-    boolean that_present_detail = true && that.isSetDetail();
-    if (this_present_detail || that_present_detail) {
-      if (!(this_present_detail && that_present_detail))
-        return false;
-      if (!this.detail.equals(that.detail))
-        return false;
-    }
-
     return true;
   }
 
@@ -405,13 +346,13 @@ public class CannotRegisterParticipant extends TException implements org.apache.
     return 0;
   }
 
-  public int compareTo(CannotRegisterParticipant other) {
+  public int compareTo(InvalidProtocol other) {
     if (!getClass().equals(other.getClass())) {
       return getClass().getName().compareTo(other.getClass().getName());
     }
 
     int lastComparison = 0;
-    CannotRegisterParticipant typedOther = (CannotRegisterParticipant)other;
+    InvalidProtocol typedOther = (InvalidProtocol)other;
 
     lastComparison = Boolean.valueOf(isSetCode()).compareTo(typedOther.isSetCode());
     if (lastComparison != 0) {
@@ -443,16 +384,6 @@ public class CannotRegisterParticipant extends TException implements org.apache.
         return lastComparison;
       }
     }
-    lastComparison = Boolean.valueOf(isSetDetail()).compareTo(typedOther.isSetDetail());
-    if (lastComparison != 0) {
-      return lastComparison;
-    }
-    if (isSetDetail()) {
-      lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.detail, typedOther.detail);
-      if (lastComparison != 0) {
-        return lastComparison;
-      }
-    }
     return 0;
   }
 
@@ -460,17 +391,17 @@ public class CannotRegisterParticipant extends TException implements org.apache.
     return _Fields.findByThriftId(fieldId);
   }
 
-  public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+  public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
     schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
   }
 
-  public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+  public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
     schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
   }
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder("CannotRegisterParticipant(");
+    StringBuilder sb = new StringBuilder("InvalidProtocol(");
     boolean first = true;
 
     sb.append("code:");
@@ -496,31 +427,20 @@ public class CannotRegisterParticipant extends TException implements org.apache.
       sb.append(this.reason);
     }
     first = false;
-    if (!first) sb.append(", ");
-    sb.append("detail:");
-    if (this.detail == null) {
-      sb.append("null");
-    } else {
-      sb.append(this.detail);
-    }
-    first = false;
     sb.append(")");
     return sb.toString();
   }
 
-  public void validate() throws org.apache.thrift.TException {
+  public void validate() throws TException {
     // check for required fields
     if (code == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'code' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'code' was not present! Struct: " + toString());
     }
     if (subcode == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'subcode' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'subcode' was not present! Struct: " + toString());
     }
     if (reason == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'reason' was not present! Struct: " + toString());
-    }
-    if (detail == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'detail' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'reason' was not present! Struct: " + toString());
     }
     // check for sub-struct validity
   }
@@ -528,7 +448,7 @@ public class CannotRegisterParticipant extends TException implements org.apache.
   private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
     try {
       write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-    } catch (org.apache.thrift.TException te) {
+    } catch (TException te) {
       throw new java.io.IOException(te);
     }
   }
@@ -536,20 +456,20 @@ public class CannotRegisterParticipant extends TException implements org.apache.
   private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
     try {
       read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-    } catch (org.apache.thrift.TException te) {
+    } catch (TException te) {
       throw new java.io.IOException(te);
     }
   }
 
-  private static class CannotRegisterParticipantStandardSchemeFactory implements SchemeFactory {
-    public CannotRegisterParticipantStandardScheme getScheme() {
-      return new CannotRegisterParticipantStandardScheme();
+  private static class InvalidProtocolStandardSchemeFactory implements SchemeFactory {
+    public InvalidProtocolStandardScheme getScheme() {
+      return new InvalidProtocolStandardScheme();
     }
   }
 
-  private static class CannotRegisterParticipantStandardScheme extends StandardScheme<CannotRegisterParticipant> {
+  private static class InvalidProtocolStandardScheme extends StandardScheme<InvalidProtocol> {
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot, CannotRegisterParticipant struct) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot, InvalidProtocol struct) throws TException {
       org.apache.thrift.protocol.TField schemeField;
       iprot.readStructBegin();
       while (true)
@@ -583,14 +503,6 @@ public class CannotRegisterParticipant extends TException implements org.apache.
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
             break;
-          case 4: // DETAIL
-            if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
-              struct.detail = iprot.readString();
-              struct.setDetailIsSet(true);
-            } else { 
-              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-            }
-            break;
           default:
             org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
         }
@@ -602,7 +514,7 @@ public class CannotRegisterParticipant extends TException implements org.apache.
       struct.validate();
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot, CannotRegisterParticipant struct) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot, InvalidProtocol struct) throws TException {
       struct.validate();
 
       oprot.writeStructBegin(STRUCT_DESC);
@@ -621,36 +533,30 @@ public class CannotRegisterParticipant extends TException implements org.apache.
         oprot.writeString(struct.reason);
         oprot.writeFieldEnd();
       }
-      if (struct.detail != null) {
-        oprot.writeFieldBegin(DETAIL_FIELD_DESC);
-        oprot.writeString(struct.detail);
-        oprot.writeFieldEnd();
-      }
       oprot.writeFieldStop();
       oprot.writeStructEnd();
     }
 
   }
 
-  private static class CannotRegisterParticipantTupleSchemeFactory implements SchemeFactory {
-    public CannotRegisterParticipantTupleScheme getScheme() {
-      return new CannotRegisterParticipantTupleScheme();
+  private static class InvalidProtocolTupleSchemeFactory implements SchemeFactory {
+    public InvalidProtocolTupleScheme getScheme() {
+      return new InvalidProtocolTupleScheme();
     }
   }
 
-  private static class CannotRegisterParticipantTupleScheme extends TupleScheme<CannotRegisterParticipant> {
+  private static class InvalidProtocolTupleScheme extends TupleScheme<InvalidProtocol> {
 
     @Override
-    public void write(org.apache.thrift.protocol.TProtocol prot, CannotRegisterParticipant struct) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol prot, InvalidProtocol struct) throws TException {
       TTupleProtocol oprot = (TTupleProtocol) prot;
       oprot.writeString(struct.code);
       oprot.writeString(struct.subcode);
       oprot.writeString(struct.reason);
-      oprot.writeString(struct.detail);
     }
 
     @Override
-    public void read(org.apache.thrift.protocol.TProtocol prot, CannotRegisterParticipant struct) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol prot, InvalidProtocol struct) throws TException {
       TTupleProtocol iprot = (TTupleProtocol) prot;
       struct.code = iprot.readString();
       struct.setCodeIsSet(true);
@@ -658,8 +564,6 @@ public class CannotRegisterParticipant extends TException implements org.apache.
       struct.setSubcodeIsSet(true);
       struct.reason = iprot.readString();
       struct.setReasonIsSet(true);
-      struct.detail = iprot.readString();
-      struct.setDetailIsSet(true);
     }
   }
 

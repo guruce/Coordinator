@@ -4,7 +4,7 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-package acidoth.thrift.xa;
+package thrift;
 
 import org.apache.thrift.scheme.IScheme;
 import org.apache.thrift.scheme.SchemeFactory;
@@ -30,29 +30,29 @@ import java.util.Arrays;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class AcidothParticipantXAServices {
+public class AcidothParticipant2PCServices {
 
   public interface Iface {
 
-    public PCResponse xa_commit(String identifier) throws org.apache.thrift.TException;
+    public ServiceResponse commit(String identifier) throws TException;
 
-    public PCResponse xa_abort(String identifier) throws org.apache.thrift.TException;
+    public ServiceResponse abort(String identifier) throws TException;
 
-    public PCResponse xa_rollback(String identifier) throws org.apache.thrift.TException;
+    public ServiceResponse rollback(String identifier) throws TException;
 
-    public PCResponse xa_prepare(String identifier) throws org.apache.thrift.TException;
+    public ServiceResponse prepare(String identifier) throws TException;
 
   }
 
   public interface AsyncIface {
 
-    public void xa_commit(String identifier, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.xa_commit_call> resultHandler) throws org.apache.thrift.TException;
+    public void commit(String identifier, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.commit_call> resultHandler) throws TException;
 
-    public void xa_abort(String identifier, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.xa_abort_call> resultHandler) throws org.apache.thrift.TException;
+    public void abort(String identifier, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.abort_call> resultHandler) throws TException;
 
-    public void xa_rollback(String identifier, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.xa_rollback_call> resultHandler) throws org.apache.thrift.TException;
+    public void rollback(String identifier, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.rollback_call> resultHandler) throws TException;
 
-    public void xa_prepare(String identifier, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.xa_prepare_call> resultHandler) throws org.apache.thrift.TException;
+    public void prepare(String identifier, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.prepare_call> resultHandler) throws TException;
 
   }
 
@@ -76,96 +76,96 @@ public class AcidothParticipantXAServices {
       super(iprot, oprot);
     }
 
-    public PCResponse xa_commit(String identifier) throws org.apache.thrift.TException
+    public ServiceResponse commit(String identifier) throws TException
     {
-      send_xa_commit(identifier);
-      return recv_xa_commit();
+      send_commit(identifier);
+      return recv_commit();
     }
 
-    public void send_xa_commit(String identifier) throws org.apache.thrift.TException
+    public void send_commit(String identifier) throws TException
     {
-      xa_commit_args args = new xa_commit_args();
+      commit_args args = new commit_args();
       args.setIdentifier(identifier);
-      sendBase("xa_commit", args);
+      sendBase("commit", args);
     }
 
-    public PCResponse recv_xa_commit() throws org.apache.thrift.TException
+    public ServiceResponse recv_commit() throws TException
     {
-      xa_commit_result result = new xa_commit_result();
-      receiveBase(result, "xa_commit");
+      commit_result result = new commit_result();
+      receiveBase(result, "commit");
       if (result.isSetSuccess()) {
         return result.success;
       }
-      throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "xa_commit failed: unknown result");
+      throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "commit failed: unknown result");
     }
 
-    public PCResponse xa_abort(String identifier) throws org.apache.thrift.TException
+    public ServiceResponse abort(String identifier) throws TException
     {
-      send_xa_abort(identifier);
-      return recv_xa_abort();
+      send_abort(identifier);
+      return recv_abort();
     }
 
-    public void send_xa_abort(String identifier) throws org.apache.thrift.TException
+    public void send_abort(String identifier) throws TException
     {
-      xa_abort_args args = new xa_abort_args();
+      abort_args args = new abort_args();
       args.setIdentifier(identifier);
-      sendBase("xa_abort", args);
+      sendBase("abort", args);
     }
 
-    public PCResponse recv_xa_abort() throws org.apache.thrift.TException
+    public ServiceResponse recv_abort() throws TException
     {
-      xa_abort_result result = new xa_abort_result();
-      receiveBase(result, "xa_abort");
+      abort_result result = new abort_result();
+      receiveBase(result, "abort");
       if (result.isSetSuccess()) {
         return result.success;
       }
-      throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "xa_abort failed: unknown result");
+      throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "abort failed: unknown result");
     }
 
-    public PCResponse xa_rollback(String identifier) throws org.apache.thrift.TException
+    public ServiceResponse rollback(String identifier) throws TException
     {
-      send_xa_rollback(identifier);
-      return recv_xa_rollback();
+      send_rollback(identifier);
+      return recv_rollback();
     }
 
-    public void send_xa_rollback(String identifier) throws org.apache.thrift.TException
+    public void send_rollback(String identifier) throws TException
     {
-      xa_rollback_args args = new xa_rollback_args();
+      rollback_args args = new rollback_args();
       args.setIdentifier(identifier);
-      sendBase("xa_rollback", args);
+      sendBase("rollback", args);
     }
 
-    public PCResponse recv_xa_rollback() throws org.apache.thrift.TException
+    public ServiceResponse recv_rollback() throws TException
     {
-      xa_rollback_result result = new xa_rollback_result();
-      receiveBase(result, "xa_rollback");
+      rollback_result result = new rollback_result();
+      receiveBase(result, "rollback");
       if (result.isSetSuccess()) {
         return result.success;
       }
-      throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "xa_rollback failed: unknown result");
+      throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "rollback failed: unknown result");
     }
 
-    public PCResponse xa_prepare(String identifier) throws org.apache.thrift.TException
+    public ServiceResponse prepare(String identifier) throws TException
     {
-      send_xa_prepare(identifier);
-      return recv_xa_prepare();
+      send_prepare(identifier);
+      return recv_prepare();
     }
 
-    public void send_xa_prepare(String identifier) throws org.apache.thrift.TException
+    public void send_prepare(String identifier) throws TException
     {
-      xa_prepare_args args = new xa_prepare_args();
+      prepare_args args = new prepare_args();
       args.setIdentifier(identifier);
-      sendBase("xa_prepare", args);
+      sendBase("prepare", args);
     }
 
-    public PCResponse recv_xa_prepare() throws org.apache.thrift.TException
+    public ServiceResponse recv_prepare() throws TException
     {
-      xa_prepare_result result = new xa_prepare_result();
-      receiveBase(result, "xa_prepare");
+      prepare_result result = new prepare_result();
+      receiveBase(result, "prepare");
       if (result.isSetSuccess()) {
         return result.success;
       }
-      throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "xa_prepare failed: unknown result");
+      throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "prepare failed: unknown result");
     }
 
   }
@@ -186,131 +186,131 @@ public class AcidothParticipantXAServices {
       super(protocolFactory, clientManager, transport);
     }
 
-    public void xa_commit(String identifier, org.apache.thrift.async.AsyncMethodCallback<xa_commit_call> resultHandler) throws org.apache.thrift.TException {
+    public void commit(String identifier, org.apache.thrift.async.AsyncMethodCallback<commit_call> resultHandler) throws TException {
       checkReady();
-      xa_commit_call method_call = new xa_commit_call(identifier, resultHandler, this, ___protocolFactory, ___transport);
+      commit_call method_call = new commit_call(identifier, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
       ___manager.call(method_call);
     }
 
-    public static class xa_commit_call extends org.apache.thrift.async.TAsyncMethodCall {
+    public static class commit_call extends org.apache.thrift.async.TAsyncMethodCall {
       private String identifier;
-      public xa_commit_call(String identifier, org.apache.thrift.async.AsyncMethodCallback<xa_commit_call> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public commit_call(String identifier, org.apache.thrift.async.AsyncMethodCallback<commit_call> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.identifier = identifier;
       }
 
-      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
-        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("xa_commit", org.apache.thrift.protocol.TMessageType.CALL, 0));
-        xa_commit_args args = new xa_commit_args();
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws TException {
+        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("commit", org.apache.thrift.protocol.TMessageType.CALL, 0));
+        commit_args args = new commit_args();
         args.setIdentifier(identifier);
         args.write(prot);
         prot.writeMessageEnd();
       }
 
-      public PCResponse getResult() throws org.apache.thrift.TException {
-        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public ServiceResponse getResult() throws TException {
+        if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
         org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
-        return (new Client(prot)).recv_xa_commit();
+        return (new Client(prot)).recv_commit();
       }
     }
 
-    public void xa_abort(String identifier, org.apache.thrift.async.AsyncMethodCallback<xa_abort_call> resultHandler) throws org.apache.thrift.TException {
+    public void abort(String identifier, org.apache.thrift.async.AsyncMethodCallback<abort_call> resultHandler) throws TException {
       checkReady();
-      xa_abort_call method_call = new xa_abort_call(identifier, resultHandler, this, ___protocolFactory, ___transport);
+      abort_call method_call = new abort_call(identifier, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
       ___manager.call(method_call);
     }
 
-    public static class xa_abort_call extends org.apache.thrift.async.TAsyncMethodCall {
+    public static class abort_call extends org.apache.thrift.async.TAsyncMethodCall {
       private String identifier;
-      public xa_abort_call(String identifier, org.apache.thrift.async.AsyncMethodCallback<xa_abort_call> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public abort_call(String identifier, org.apache.thrift.async.AsyncMethodCallback<abort_call> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.identifier = identifier;
       }
 
-      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
-        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("xa_abort", org.apache.thrift.protocol.TMessageType.CALL, 0));
-        xa_abort_args args = new xa_abort_args();
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws TException {
+        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("abort", org.apache.thrift.protocol.TMessageType.CALL, 0));
+        abort_args args = new abort_args();
         args.setIdentifier(identifier);
         args.write(prot);
         prot.writeMessageEnd();
       }
 
-      public PCResponse getResult() throws org.apache.thrift.TException {
-        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public ServiceResponse getResult() throws TException {
+        if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
         org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
-        return (new Client(prot)).recv_xa_abort();
+        return (new Client(prot)).recv_abort();
       }
     }
 
-    public void xa_rollback(String identifier, org.apache.thrift.async.AsyncMethodCallback<xa_rollback_call> resultHandler) throws org.apache.thrift.TException {
+    public void rollback(String identifier, org.apache.thrift.async.AsyncMethodCallback<rollback_call> resultHandler) throws TException {
       checkReady();
-      xa_rollback_call method_call = new xa_rollback_call(identifier, resultHandler, this, ___protocolFactory, ___transport);
+      rollback_call method_call = new rollback_call(identifier, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
       ___manager.call(method_call);
     }
 
-    public static class xa_rollback_call extends org.apache.thrift.async.TAsyncMethodCall {
+    public static class rollback_call extends org.apache.thrift.async.TAsyncMethodCall {
       private String identifier;
-      public xa_rollback_call(String identifier, org.apache.thrift.async.AsyncMethodCallback<xa_rollback_call> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public rollback_call(String identifier, org.apache.thrift.async.AsyncMethodCallback<rollback_call> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.identifier = identifier;
       }
 
-      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
-        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("xa_rollback", org.apache.thrift.protocol.TMessageType.CALL, 0));
-        xa_rollback_args args = new xa_rollback_args();
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws TException {
+        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("rollback", org.apache.thrift.protocol.TMessageType.CALL, 0));
+        rollback_args args = new rollback_args();
         args.setIdentifier(identifier);
         args.write(prot);
         prot.writeMessageEnd();
       }
 
-      public PCResponse getResult() throws org.apache.thrift.TException {
-        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public ServiceResponse getResult() throws TException {
+        if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
         org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
-        return (new Client(prot)).recv_xa_rollback();
+        return (new Client(prot)).recv_rollback();
       }
     }
 
-    public void xa_prepare(String identifier, org.apache.thrift.async.AsyncMethodCallback<xa_prepare_call> resultHandler) throws org.apache.thrift.TException {
+    public void prepare(String identifier, org.apache.thrift.async.AsyncMethodCallback<prepare_call> resultHandler) throws TException {
       checkReady();
-      xa_prepare_call method_call = new xa_prepare_call(identifier, resultHandler, this, ___protocolFactory, ___transport);
+      prepare_call method_call = new prepare_call(identifier, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
       ___manager.call(method_call);
     }
 
-    public static class xa_prepare_call extends org.apache.thrift.async.TAsyncMethodCall {
+    public static class prepare_call extends org.apache.thrift.async.TAsyncMethodCall {
       private String identifier;
-      public xa_prepare_call(String identifier, org.apache.thrift.async.AsyncMethodCallback<xa_prepare_call> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public prepare_call(String identifier, org.apache.thrift.async.AsyncMethodCallback<prepare_call> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.identifier = identifier;
       }
 
-      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
-        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("xa_prepare", org.apache.thrift.protocol.TMessageType.CALL, 0));
-        xa_prepare_args args = new xa_prepare_args();
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws TException {
+        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("prepare", org.apache.thrift.protocol.TMessageType.CALL, 0));
+        prepare_args args = new prepare_args();
         args.setIdentifier(identifier);
         args.write(prot);
         prot.writeMessageEnd();
       }
 
-      public PCResponse getResult() throws org.apache.thrift.TException {
-        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public ServiceResponse getResult() throws TException {
+        if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
         org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
-        return (new Client(prot)).recv_xa_prepare();
+        return (new Client(prot)).recv_prepare();
       }
     }
 
@@ -327,104 +327,104 @@ public class AcidothParticipantXAServices {
     }
 
     private static <I extends Iface> Map<String,  org.apache.thrift.ProcessFunction<I, ? extends  org.apache.thrift.TBase>> getProcessMap(Map<String,  org.apache.thrift.ProcessFunction<I, ? extends  org.apache.thrift.TBase>> processMap) {
-      processMap.put("xa_commit", new xa_commit());
-      processMap.put("xa_abort", new xa_abort());
-      processMap.put("xa_rollback", new xa_rollback());
-      processMap.put("xa_prepare", new xa_prepare());
+      processMap.put("commit", new commit());
+      processMap.put("abort", new abort());
+      processMap.put("rollback", new rollback());
+      processMap.put("prepare", new prepare());
       return processMap;
     }
 
-    public static class xa_commit<I extends Iface> extends org.apache.thrift.ProcessFunction<I, xa_commit_args> {
-      public xa_commit() {
-        super("xa_commit");
+    public static class commit<I extends Iface> extends org.apache.thrift.ProcessFunction<I, commit_args> {
+      public commit() {
+        super("commit");
       }
 
-      public xa_commit_args getEmptyArgsInstance() {
-        return new xa_commit_args();
+      public commit_args getEmptyArgsInstance() {
+        return new commit_args();
       }
 
       protected boolean isOneway() {
         return false;
       }
 
-      public xa_commit_result getResult(I iface, xa_commit_args args) throws org.apache.thrift.TException {
-        xa_commit_result result = new xa_commit_result();
-        result.success = iface.xa_commit(args.identifier);
+      public commit_result getResult(I iface, commit_args args) throws TException {
+        commit_result result = new commit_result();
+        result.success = iface.commit(args.identifier);
         return result;
       }
     }
 
-    public static class xa_abort<I extends Iface> extends org.apache.thrift.ProcessFunction<I, xa_abort_args> {
-      public xa_abort() {
-        super("xa_abort");
+    public static class abort<I extends Iface> extends org.apache.thrift.ProcessFunction<I, abort_args> {
+      public abort() {
+        super("abort");
       }
 
-      public xa_abort_args getEmptyArgsInstance() {
-        return new xa_abort_args();
+      public abort_args getEmptyArgsInstance() {
+        return new abort_args();
       }
 
       protected boolean isOneway() {
         return false;
       }
 
-      public xa_abort_result getResult(I iface, xa_abort_args args) throws org.apache.thrift.TException {
-        xa_abort_result result = new xa_abort_result();
-        result.success = iface.xa_abort(args.identifier);
+      public abort_result getResult(I iface, abort_args args) throws TException {
+        abort_result result = new abort_result();
+        result.success = iface.abort(args.identifier);
         return result;
       }
     }
 
-    public static class xa_rollback<I extends Iface> extends org.apache.thrift.ProcessFunction<I, xa_rollback_args> {
-      public xa_rollback() {
-        super("xa_rollback");
+    public static class rollback<I extends Iface> extends org.apache.thrift.ProcessFunction<I, rollback_args> {
+      public rollback() {
+        super("rollback");
       }
 
-      public xa_rollback_args getEmptyArgsInstance() {
-        return new xa_rollback_args();
+      public rollback_args getEmptyArgsInstance() {
+        return new rollback_args();
       }
 
       protected boolean isOneway() {
         return false;
       }
 
-      public xa_rollback_result getResult(I iface, xa_rollback_args args) throws org.apache.thrift.TException {
-        xa_rollback_result result = new xa_rollback_result();
-        result.success = iface.xa_rollback(args.identifier);
+      public rollback_result getResult(I iface, rollback_args args) throws TException {
+        rollback_result result = new rollback_result();
+        result.success = iface.rollback(args.identifier);
         return result;
       }
     }
 
-    public static class xa_prepare<I extends Iface> extends org.apache.thrift.ProcessFunction<I, xa_prepare_args> {
-      public xa_prepare() {
-        super("xa_prepare");
+    public static class prepare<I extends Iface> extends org.apache.thrift.ProcessFunction<I, prepare_args> {
+      public prepare() {
+        super("prepare");
       }
 
-      public xa_prepare_args getEmptyArgsInstance() {
-        return new xa_prepare_args();
+      public prepare_args getEmptyArgsInstance() {
+        return new prepare_args();
       }
 
       protected boolean isOneway() {
         return false;
       }
 
-      public xa_prepare_result getResult(I iface, xa_prepare_args args) throws org.apache.thrift.TException {
-        xa_prepare_result result = new xa_prepare_result();
-        result.success = iface.xa_prepare(args.identifier);
+      public prepare_result getResult(I iface, prepare_args args) throws TException {
+        prepare_result result = new prepare_result();
+        result.success = iface.prepare(args.identifier);
         return result;
       }
     }
 
   }
 
-  public static class xa_commit_args implements org.apache.thrift.TBase<xa_commit_args, xa_commit_args._Fields>, java.io.Serializable, Cloneable   {
-    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("xa_commit_args");
+  public static class commit_args implements org.apache.thrift.TBase<commit_args, commit_args._Fields>, java.io.Serializable, Cloneable   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("commit_args");
 
     private static final org.apache.thrift.protocol.TField IDENTIFIER_FIELD_DESC = new org.apache.thrift.protocol.TField("identifier", org.apache.thrift.protocol.TType.STRING, (short)1);
 
     private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
     static {
-      schemes.put(StandardScheme.class, new xa_commit_argsStandardSchemeFactory());
-      schemes.put(TupleScheme.class, new xa_commit_argsTupleSchemeFactory());
+      schemes.put(StandardScheme.class, new commit_argsStandardSchemeFactory());
+      schemes.put(TupleScheme.class, new commit_argsTupleSchemeFactory());
     }
 
     public String identifier; // required
@@ -494,13 +494,13 @@ public class AcidothParticipantXAServices {
       tmpMap.put(_Fields.IDENTIFIER, new org.apache.thrift.meta_data.FieldMetaData("identifier", org.apache.thrift.TFieldRequirementType.DEFAULT, 
           new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
-      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(xa_commit_args.class, metaDataMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(commit_args.class, metaDataMap);
     }
 
-    public xa_commit_args() {
+    public commit_args() {
     }
 
-    public xa_commit_args(
+    public commit_args(
       String identifier)
     {
       this();
@@ -510,14 +510,14 @@ public class AcidothParticipantXAServices {
     /**
      * Performs a deep copy on <i>other</i>.
      */
-    public xa_commit_args(xa_commit_args other) {
+    public commit_args(commit_args other) {
       if (other.isSetIdentifier()) {
         this.identifier = other.identifier;
       }
     }
 
-    public xa_commit_args deepCopy() {
-      return new xa_commit_args(this);
+    public commit_args deepCopy() {
+      return new commit_args(this);
     }
 
     @Override
@@ -529,7 +529,7 @@ public class AcidothParticipantXAServices {
       return this.identifier;
     }
 
-    public xa_commit_args setIdentifier(String identifier) {
+    public commit_args setIdentifier(String identifier) {
       this.identifier = identifier;
       return this;
     }
@@ -588,12 +588,12 @@ public class AcidothParticipantXAServices {
     public boolean equals(Object that) {
       if (that == null)
         return false;
-      if (that instanceof xa_commit_args)
-        return this.equals((xa_commit_args)that);
+      if (that instanceof commit_args)
+        return this.equals((commit_args)that);
       return false;
     }
 
-    public boolean equals(xa_commit_args that) {
+    public boolean equals(commit_args that) {
       if (that == null)
         return false;
 
@@ -614,13 +614,13 @@ public class AcidothParticipantXAServices {
       return 0;
     }
 
-    public int compareTo(xa_commit_args other) {
+    public int compareTo(commit_args other) {
       if (!getClass().equals(other.getClass())) {
         return getClass().getName().compareTo(other.getClass().getName());
       }
 
       int lastComparison = 0;
-      xa_commit_args typedOther = (xa_commit_args)other;
+      commit_args typedOther = (commit_args)other;
 
       lastComparison = Boolean.valueOf(isSetIdentifier()).compareTo(typedOther.isSetIdentifier());
       if (lastComparison != 0) {
@@ -639,17 +639,17 @@ public class AcidothParticipantXAServices {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
     }
 
     @Override
     public String toString() {
-      StringBuilder sb = new StringBuilder("xa_commit_args(");
+      StringBuilder sb = new StringBuilder("commit_args(");
       boolean first = true;
 
       sb.append("identifier:");
@@ -663,7 +663,7 @@ public class AcidothParticipantXAServices {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -671,7 +671,7 @@ public class AcidothParticipantXAServices {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -679,20 +679,20 @@ public class AcidothParticipantXAServices {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
 
-    private static class xa_commit_argsStandardSchemeFactory implements SchemeFactory {
-      public xa_commit_argsStandardScheme getScheme() {
-        return new xa_commit_argsStandardScheme();
+    private static class commit_argsStandardSchemeFactory implements SchemeFactory {
+      public commit_argsStandardScheme getScheme() {
+        return new commit_argsStandardScheme();
       }
     }
 
-    private static class xa_commit_argsStandardScheme extends StandardScheme<xa_commit_args> {
+    private static class commit_argsStandardScheme extends StandardScheme<commit_args> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, xa_commit_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, commit_args struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -721,7 +721,7 @@ public class AcidothParticipantXAServices {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, xa_commit_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, commit_args struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -736,16 +736,16 @@ public class AcidothParticipantXAServices {
 
     }
 
-    private static class xa_commit_argsTupleSchemeFactory implements SchemeFactory {
-      public xa_commit_argsTupleScheme getScheme() {
-        return new xa_commit_argsTupleScheme();
+    private static class commit_argsTupleSchemeFactory implements SchemeFactory {
+      public commit_argsTupleScheme getScheme() {
+        return new commit_argsTupleScheme();
       }
     }
 
-    private static class xa_commit_argsTupleScheme extends TupleScheme<xa_commit_args> {
+    private static class commit_argsTupleScheme extends TupleScheme<commit_args> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, xa_commit_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, commit_args struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetIdentifier()) {
@@ -758,7 +758,7 @@ public class AcidothParticipantXAServices {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, xa_commit_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, commit_args struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -770,28 +770,28 @@ public class AcidothParticipantXAServices {
 
   }
 
-  public static class xa_commit_result implements org.apache.thrift.TBase<xa_commit_result, xa_commit_result._Fields>, java.io.Serializable, Cloneable   {
-    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("xa_commit_result");
+  public static class commit_result implements org.apache.thrift.TBase<commit_result, commit_result._Fields>, java.io.Serializable, Cloneable   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("commit_result");
 
     private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField("success", org.apache.thrift.protocol.TType.I32, (short)0);
 
     private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
     static {
-      schemes.put(StandardScheme.class, new xa_commit_resultStandardSchemeFactory());
-      schemes.put(TupleScheme.class, new xa_commit_resultTupleSchemeFactory());
+      schemes.put(StandardScheme.class, new commit_resultStandardSchemeFactory());
+      schemes.put(TupleScheme.class, new commit_resultTupleSchemeFactory());
     }
 
     /**
      * 
-     * @see PCResponse
+     * @see ServiceResponse
      */
-    public PCResponse success; // required
+    public ServiceResponse success; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
       /**
        * 
-       * @see PCResponse
+       * @see ServiceResponse
        */
       SUCCESS((short)0, "success");
 
@@ -854,16 +854,16 @@ public class AcidothParticipantXAServices {
     static {
       Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
       tmpMap.put(_Fields.SUCCESS, new org.apache.thrift.meta_data.FieldMetaData("success", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.thrift.meta_data.EnumMetaData(org.apache.thrift.protocol.TType.ENUM, PCResponse.class)));
+          new org.apache.thrift.meta_data.EnumMetaData(org.apache.thrift.protocol.TType.ENUM, ServiceResponse.class)));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
-      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(xa_commit_result.class, metaDataMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(commit_result.class, metaDataMap);
     }
 
-    public xa_commit_result() {
+    public commit_result() {
     }
 
-    public xa_commit_result(
-      PCResponse success)
+    public commit_result(
+      ServiceResponse success)
     {
       this();
       this.success = success;
@@ -872,14 +872,14 @@ public class AcidothParticipantXAServices {
     /**
      * Performs a deep copy on <i>other</i>.
      */
-    public xa_commit_result(xa_commit_result other) {
+    public commit_result(commit_result other) {
       if (other.isSetSuccess()) {
         this.success = other.success;
       }
     }
 
-    public xa_commit_result deepCopy() {
-      return new xa_commit_result(this);
+    public commit_result deepCopy() {
+      return new commit_result(this);
     }
 
     @Override
@@ -889,17 +889,17 @@ public class AcidothParticipantXAServices {
 
     /**
      * 
-     * @see PCResponse
+     * @see ServiceResponse
      */
-    public PCResponse getSuccess() {
+    public ServiceResponse getSuccess() {
       return this.success;
     }
 
     /**
      * 
-     * @see PCResponse
+     * @see ServiceResponse
      */
-    public xa_commit_result setSuccess(PCResponse success) {
+    public commit_result setSuccess(ServiceResponse success) {
       this.success = success;
       return this;
     }
@@ -925,7 +925,7 @@ public class AcidothParticipantXAServices {
         if (value == null) {
           unsetSuccess();
         } else {
-          setSuccess((PCResponse)value);
+          setSuccess((ServiceResponse)value);
         }
         break;
 
@@ -958,12 +958,12 @@ public class AcidothParticipantXAServices {
     public boolean equals(Object that) {
       if (that == null)
         return false;
-      if (that instanceof xa_commit_result)
-        return this.equals((xa_commit_result)that);
+      if (that instanceof commit_result)
+        return this.equals((commit_result)that);
       return false;
     }
 
-    public boolean equals(xa_commit_result that) {
+    public boolean equals(commit_result that) {
       if (that == null)
         return false;
 
@@ -984,13 +984,13 @@ public class AcidothParticipantXAServices {
       return 0;
     }
 
-    public int compareTo(xa_commit_result other) {
+    public int compareTo(commit_result other) {
       if (!getClass().equals(other.getClass())) {
         return getClass().getName().compareTo(other.getClass().getName());
       }
 
       int lastComparison = 0;
-      xa_commit_result typedOther = (xa_commit_result)other;
+      commit_result typedOther = (commit_result)other;
 
       lastComparison = Boolean.valueOf(isSetSuccess()).compareTo(typedOther.isSetSuccess());
       if (lastComparison != 0) {
@@ -1009,17 +1009,17 @@ public class AcidothParticipantXAServices {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
       }
 
     @Override
     public String toString() {
-      StringBuilder sb = new StringBuilder("xa_commit_result(");
+      StringBuilder sb = new StringBuilder("commit_result(");
       boolean first = true;
 
       sb.append("success:");
@@ -1033,7 +1033,7 @@ public class AcidothParticipantXAServices {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -1041,7 +1041,7 @@ public class AcidothParticipantXAServices {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -1049,20 +1049,20 @@ public class AcidothParticipantXAServices {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
 
-    private static class xa_commit_resultStandardSchemeFactory implements SchemeFactory {
-      public xa_commit_resultStandardScheme getScheme() {
-        return new xa_commit_resultStandardScheme();
+    private static class commit_resultStandardSchemeFactory implements SchemeFactory {
+      public commit_resultStandardScheme getScheme() {
+        return new commit_resultStandardScheme();
       }
     }
 
-    private static class xa_commit_resultStandardScheme extends StandardScheme<xa_commit_result> {
+    private static class commit_resultStandardScheme extends StandardScheme<commit_result> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, xa_commit_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, commit_result struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -1074,7 +1074,7 @@ public class AcidothParticipantXAServices {
           switch (schemeField.id) {
             case 0: // SUCCESS
               if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
-                struct.success = PCResponse.findByValue(iprot.readI32());
+                struct.success = ServiceResponse.findByValue(iprot.readI32());
                 struct.setSuccessIsSet(true);
               } else { 
                 org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -1091,7 +1091,7 @@ public class AcidothParticipantXAServices {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, xa_commit_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, commit_result struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -1106,16 +1106,16 @@ public class AcidothParticipantXAServices {
 
     }
 
-    private static class xa_commit_resultTupleSchemeFactory implements SchemeFactory {
-      public xa_commit_resultTupleScheme getScheme() {
-        return new xa_commit_resultTupleScheme();
+    private static class commit_resultTupleSchemeFactory implements SchemeFactory {
+      public commit_resultTupleScheme getScheme() {
+        return new commit_resultTupleScheme();
       }
     }
 
-    private static class xa_commit_resultTupleScheme extends TupleScheme<xa_commit_result> {
+    private static class commit_resultTupleScheme extends TupleScheme<commit_result> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, xa_commit_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, commit_result struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetSuccess()) {
@@ -1128,11 +1128,11 @@ public class AcidothParticipantXAServices {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, xa_commit_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, commit_result struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
-          struct.success = PCResponse.findByValue(iprot.readI32());
+          struct.success = ServiceResponse.findByValue(iprot.readI32());
           struct.setSuccessIsSet(true);
         }
       }
@@ -1140,15 +1140,15 @@ public class AcidothParticipantXAServices {
 
   }
 
-  public static class xa_abort_args implements org.apache.thrift.TBase<xa_abort_args, xa_abort_args._Fields>, java.io.Serializable, Cloneable   {
-    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("xa_abort_args");
+  public static class abort_args implements org.apache.thrift.TBase<abort_args, abort_args._Fields>, java.io.Serializable, Cloneable   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("abort_args");
 
     private static final org.apache.thrift.protocol.TField IDENTIFIER_FIELD_DESC = new org.apache.thrift.protocol.TField("identifier", org.apache.thrift.protocol.TType.STRING, (short)1);
 
     private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
     static {
-      schemes.put(StandardScheme.class, new xa_abort_argsStandardSchemeFactory());
-      schemes.put(TupleScheme.class, new xa_abort_argsTupleSchemeFactory());
+      schemes.put(StandardScheme.class, new abort_argsStandardSchemeFactory());
+      schemes.put(TupleScheme.class, new abort_argsTupleSchemeFactory());
     }
 
     public String identifier; // required
@@ -1218,13 +1218,13 @@ public class AcidothParticipantXAServices {
       tmpMap.put(_Fields.IDENTIFIER, new org.apache.thrift.meta_data.FieldMetaData("identifier", org.apache.thrift.TFieldRequirementType.DEFAULT, 
           new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
-      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(xa_abort_args.class, metaDataMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(abort_args.class, metaDataMap);
     }
 
-    public xa_abort_args() {
+    public abort_args() {
     }
 
-    public xa_abort_args(
+    public abort_args(
       String identifier)
     {
       this();
@@ -1234,14 +1234,14 @@ public class AcidothParticipantXAServices {
     /**
      * Performs a deep copy on <i>other</i>.
      */
-    public xa_abort_args(xa_abort_args other) {
+    public abort_args(abort_args other) {
       if (other.isSetIdentifier()) {
         this.identifier = other.identifier;
       }
     }
 
-    public xa_abort_args deepCopy() {
-      return new xa_abort_args(this);
+    public abort_args deepCopy() {
+      return new abort_args(this);
     }
 
     @Override
@@ -1253,7 +1253,7 @@ public class AcidothParticipantXAServices {
       return this.identifier;
     }
 
-    public xa_abort_args setIdentifier(String identifier) {
+    public abort_args setIdentifier(String identifier) {
       this.identifier = identifier;
       return this;
     }
@@ -1312,12 +1312,12 @@ public class AcidothParticipantXAServices {
     public boolean equals(Object that) {
       if (that == null)
         return false;
-      if (that instanceof xa_abort_args)
-        return this.equals((xa_abort_args)that);
+      if (that instanceof abort_args)
+        return this.equals((abort_args)that);
       return false;
     }
 
-    public boolean equals(xa_abort_args that) {
+    public boolean equals(abort_args that) {
       if (that == null)
         return false;
 
@@ -1338,13 +1338,13 @@ public class AcidothParticipantXAServices {
       return 0;
     }
 
-    public int compareTo(xa_abort_args other) {
+    public int compareTo(abort_args other) {
       if (!getClass().equals(other.getClass())) {
         return getClass().getName().compareTo(other.getClass().getName());
       }
 
       int lastComparison = 0;
-      xa_abort_args typedOther = (xa_abort_args)other;
+      abort_args typedOther = (abort_args)other;
 
       lastComparison = Boolean.valueOf(isSetIdentifier()).compareTo(typedOther.isSetIdentifier());
       if (lastComparison != 0) {
@@ -1363,17 +1363,17 @@ public class AcidothParticipantXAServices {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
     }
 
     @Override
     public String toString() {
-      StringBuilder sb = new StringBuilder("xa_abort_args(");
+      StringBuilder sb = new StringBuilder("abort_args(");
       boolean first = true;
 
       sb.append("identifier:");
@@ -1387,7 +1387,7 @@ public class AcidothParticipantXAServices {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -1395,7 +1395,7 @@ public class AcidothParticipantXAServices {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -1403,20 +1403,20 @@ public class AcidothParticipantXAServices {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
 
-    private static class xa_abort_argsStandardSchemeFactory implements SchemeFactory {
-      public xa_abort_argsStandardScheme getScheme() {
-        return new xa_abort_argsStandardScheme();
+    private static class abort_argsStandardSchemeFactory implements SchemeFactory {
+      public abort_argsStandardScheme getScheme() {
+        return new abort_argsStandardScheme();
       }
     }
 
-    private static class xa_abort_argsStandardScheme extends StandardScheme<xa_abort_args> {
+    private static class abort_argsStandardScheme extends StandardScheme<abort_args> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, xa_abort_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, abort_args struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -1445,7 +1445,7 @@ public class AcidothParticipantXAServices {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, xa_abort_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, abort_args struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -1460,16 +1460,16 @@ public class AcidothParticipantXAServices {
 
     }
 
-    private static class xa_abort_argsTupleSchemeFactory implements SchemeFactory {
-      public xa_abort_argsTupleScheme getScheme() {
-        return new xa_abort_argsTupleScheme();
+    private static class abort_argsTupleSchemeFactory implements SchemeFactory {
+      public abort_argsTupleScheme getScheme() {
+        return new abort_argsTupleScheme();
       }
     }
 
-    private static class xa_abort_argsTupleScheme extends TupleScheme<xa_abort_args> {
+    private static class abort_argsTupleScheme extends TupleScheme<abort_args> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, xa_abort_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, abort_args struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetIdentifier()) {
@@ -1482,7 +1482,7 @@ public class AcidothParticipantXAServices {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, xa_abort_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, abort_args struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -1494,28 +1494,28 @@ public class AcidothParticipantXAServices {
 
   }
 
-  public static class xa_abort_result implements org.apache.thrift.TBase<xa_abort_result, xa_abort_result._Fields>, java.io.Serializable, Cloneable   {
-    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("xa_abort_result");
+  public static class abort_result implements org.apache.thrift.TBase<abort_result, abort_result._Fields>, java.io.Serializable, Cloneable   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("abort_result");
 
     private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField("success", org.apache.thrift.protocol.TType.I32, (short)0);
 
     private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
     static {
-      schemes.put(StandardScheme.class, new xa_abort_resultStandardSchemeFactory());
-      schemes.put(TupleScheme.class, new xa_abort_resultTupleSchemeFactory());
+      schemes.put(StandardScheme.class, new abort_resultStandardSchemeFactory());
+      schemes.put(TupleScheme.class, new abort_resultTupleSchemeFactory());
     }
 
     /**
      * 
-     * @see PCResponse
+     * @see ServiceResponse
      */
-    public PCResponse success; // required
+    public ServiceResponse success; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
       /**
        * 
-       * @see PCResponse
+       * @see ServiceResponse
        */
       SUCCESS((short)0, "success");
 
@@ -1578,16 +1578,16 @@ public class AcidothParticipantXAServices {
     static {
       Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
       tmpMap.put(_Fields.SUCCESS, new org.apache.thrift.meta_data.FieldMetaData("success", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.thrift.meta_data.EnumMetaData(org.apache.thrift.protocol.TType.ENUM, PCResponse.class)));
+          new org.apache.thrift.meta_data.EnumMetaData(org.apache.thrift.protocol.TType.ENUM, ServiceResponse.class)));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
-      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(xa_abort_result.class, metaDataMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(abort_result.class, metaDataMap);
     }
 
-    public xa_abort_result() {
+    public abort_result() {
     }
 
-    public xa_abort_result(
-      PCResponse success)
+    public abort_result(
+      ServiceResponse success)
     {
       this();
       this.success = success;
@@ -1596,14 +1596,14 @@ public class AcidothParticipantXAServices {
     /**
      * Performs a deep copy on <i>other</i>.
      */
-    public xa_abort_result(xa_abort_result other) {
+    public abort_result(abort_result other) {
       if (other.isSetSuccess()) {
         this.success = other.success;
       }
     }
 
-    public xa_abort_result deepCopy() {
-      return new xa_abort_result(this);
+    public abort_result deepCopy() {
+      return new abort_result(this);
     }
 
     @Override
@@ -1613,17 +1613,17 @@ public class AcidothParticipantXAServices {
 
     /**
      * 
-     * @see PCResponse
+     * @see ServiceResponse
      */
-    public PCResponse getSuccess() {
+    public ServiceResponse getSuccess() {
       return this.success;
     }
 
     /**
      * 
-     * @see PCResponse
+     * @see ServiceResponse
      */
-    public xa_abort_result setSuccess(PCResponse success) {
+    public abort_result setSuccess(ServiceResponse success) {
       this.success = success;
       return this;
     }
@@ -1649,7 +1649,7 @@ public class AcidothParticipantXAServices {
         if (value == null) {
           unsetSuccess();
         } else {
-          setSuccess((PCResponse)value);
+          setSuccess((ServiceResponse)value);
         }
         break;
 
@@ -1682,12 +1682,12 @@ public class AcidothParticipantXAServices {
     public boolean equals(Object that) {
       if (that == null)
         return false;
-      if (that instanceof xa_abort_result)
-        return this.equals((xa_abort_result)that);
+      if (that instanceof abort_result)
+        return this.equals((abort_result)that);
       return false;
     }
 
-    public boolean equals(xa_abort_result that) {
+    public boolean equals(abort_result that) {
       if (that == null)
         return false;
 
@@ -1708,13 +1708,13 @@ public class AcidothParticipantXAServices {
       return 0;
     }
 
-    public int compareTo(xa_abort_result other) {
+    public int compareTo(abort_result other) {
       if (!getClass().equals(other.getClass())) {
         return getClass().getName().compareTo(other.getClass().getName());
       }
 
       int lastComparison = 0;
-      xa_abort_result typedOther = (xa_abort_result)other;
+      abort_result typedOther = (abort_result)other;
 
       lastComparison = Boolean.valueOf(isSetSuccess()).compareTo(typedOther.isSetSuccess());
       if (lastComparison != 0) {
@@ -1733,17 +1733,17 @@ public class AcidothParticipantXAServices {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
       }
 
     @Override
     public String toString() {
-      StringBuilder sb = new StringBuilder("xa_abort_result(");
+      StringBuilder sb = new StringBuilder("abort_result(");
       boolean first = true;
 
       sb.append("success:");
@@ -1757,7 +1757,7 @@ public class AcidothParticipantXAServices {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -1765,7 +1765,7 @@ public class AcidothParticipantXAServices {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -1773,20 +1773,20 @@ public class AcidothParticipantXAServices {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
 
-    private static class xa_abort_resultStandardSchemeFactory implements SchemeFactory {
-      public xa_abort_resultStandardScheme getScheme() {
-        return new xa_abort_resultStandardScheme();
+    private static class abort_resultStandardSchemeFactory implements SchemeFactory {
+      public abort_resultStandardScheme getScheme() {
+        return new abort_resultStandardScheme();
       }
     }
 
-    private static class xa_abort_resultStandardScheme extends StandardScheme<xa_abort_result> {
+    private static class abort_resultStandardScheme extends StandardScheme<abort_result> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, xa_abort_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, abort_result struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -1798,7 +1798,7 @@ public class AcidothParticipantXAServices {
           switch (schemeField.id) {
             case 0: // SUCCESS
               if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
-                struct.success = PCResponse.findByValue(iprot.readI32());
+                struct.success = ServiceResponse.findByValue(iprot.readI32());
                 struct.setSuccessIsSet(true);
               } else { 
                 org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -1815,7 +1815,7 @@ public class AcidothParticipantXAServices {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, xa_abort_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, abort_result struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -1830,16 +1830,16 @@ public class AcidothParticipantXAServices {
 
     }
 
-    private static class xa_abort_resultTupleSchemeFactory implements SchemeFactory {
-      public xa_abort_resultTupleScheme getScheme() {
-        return new xa_abort_resultTupleScheme();
+    private static class abort_resultTupleSchemeFactory implements SchemeFactory {
+      public abort_resultTupleScheme getScheme() {
+        return new abort_resultTupleScheme();
       }
     }
 
-    private static class xa_abort_resultTupleScheme extends TupleScheme<xa_abort_result> {
+    private static class abort_resultTupleScheme extends TupleScheme<abort_result> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, xa_abort_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, abort_result struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetSuccess()) {
@@ -1852,11 +1852,11 @@ public class AcidothParticipantXAServices {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, xa_abort_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, abort_result struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
-          struct.success = PCResponse.findByValue(iprot.readI32());
+          struct.success = ServiceResponse.findByValue(iprot.readI32());
           struct.setSuccessIsSet(true);
         }
       }
@@ -1864,15 +1864,15 @@ public class AcidothParticipantXAServices {
 
   }
 
-  public static class xa_rollback_args implements org.apache.thrift.TBase<xa_rollback_args, xa_rollback_args._Fields>, java.io.Serializable, Cloneable   {
-    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("xa_rollback_args");
+  public static class rollback_args implements org.apache.thrift.TBase<rollback_args, rollback_args._Fields>, java.io.Serializable, Cloneable   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("rollback_args");
 
     private static final org.apache.thrift.protocol.TField IDENTIFIER_FIELD_DESC = new org.apache.thrift.protocol.TField("identifier", org.apache.thrift.protocol.TType.STRING, (short)1);
 
     private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
     static {
-      schemes.put(StandardScheme.class, new xa_rollback_argsStandardSchemeFactory());
-      schemes.put(TupleScheme.class, new xa_rollback_argsTupleSchemeFactory());
+      schemes.put(StandardScheme.class, new rollback_argsStandardSchemeFactory());
+      schemes.put(TupleScheme.class, new rollback_argsTupleSchemeFactory());
     }
 
     public String identifier; // required
@@ -1942,13 +1942,13 @@ public class AcidothParticipantXAServices {
       tmpMap.put(_Fields.IDENTIFIER, new org.apache.thrift.meta_data.FieldMetaData("identifier", org.apache.thrift.TFieldRequirementType.DEFAULT, 
           new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
-      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(xa_rollback_args.class, metaDataMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(rollback_args.class, metaDataMap);
     }
 
-    public xa_rollback_args() {
+    public rollback_args() {
     }
 
-    public xa_rollback_args(
+    public rollback_args(
       String identifier)
     {
       this();
@@ -1958,14 +1958,14 @@ public class AcidothParticipantXAServices {
     /**
      * Performs a deep copy on <i>other</i>.
      */
-    public xa_rollback_args(xa_rollback_args other) {
+    public rollback_args(rollback_args other) {
       if (other.isSetIdentifier()) {
         this.identifier = other.identifier;
       }
     }
 
-    public xa_rollback_args deepCopy() {
-      return new xa_rollback_args(this);
+    public rollback_args deepCopy() {
+      return new rollback_args(this);
     }
 
     @Override
@@ -1977,7 +1977,7 @@ public class AcidothParticipantXAServices {
       return this.identifier;
     }
 
-    public xa_rollback_args setIdentifier(String identifier) {
+    public rollback_args setIdentifier(String identifier) {
       this.identifier = identifier;
       return this;
     }
@@ -2036,12 +2036,12 @@ public class AcidothParticipantXAServices {
     public boolean equals(Object that) {
       if (that == null)
         return false;
-      if (that instanceof xa_rollback_args)
-        return this.equals((xa_rollback_args)that);
+      if (that instanceof rollback_args)
+        return this.equals((rollback_args)that);
       return false;
     }
 
-    public boolean equals(xa_rollback_args that) {
+    public boolean equals(rollback_args that) {
       if (that == null)
         return false;
 
@@ -2062,13 +2062,13 @@ public class AcidothParticipantXAServices {
       return 0;
     }
 
-    public int compareTo(xa_rollback_args other) {
+    public int compareTo(rollback_args other) {
       if (!getClass().equals(other.getClass())) {
         return getClass().getName().compareTo(other.getClass().getName());
       }
 
       int lastComparison = 0;
-      xa_rollback_args typedOther = (xa_rollback_args)other;
+      rollback_args typedOther = (rollback_args)other;
 
       lastComparison = Boolean.valueOf(isSetIdentifier()).compareTo(typedOther.isSetIdentifier());
       if (lastComparison != 0) {
@@ -2087,17 +2087,17 @@ public class AcidothParticipantXAServices {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
     }
 
     @Override
     public String toString() {
-      StringBuilder sb = new StringBuilder("xa_rollback_args(");
+      StringBuilder sb = new StringBuilder("rollback_args(");
       boolean first = true;
 
       sb.append("identifier:");
@@ -2111,7 +2111,7 @@ public class AcidothParticipantXAServices {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -2119,7 +2119,7 @@ public class AcidothParticipantXAServices {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -2127,20 +2127,20 @@ public class AcidothParticipantXAServices {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
 
-    private static class xa_rollback_argsStandardSchemeFactory implements SchemeFactory {
-      public xa_rollback_argsStandardScheme getScheme() {
-        return new xa_rollback_argsStandardScheme();
+    private static class rollback_argsStandardSchemeFactory implements SchemeFactory {
+      public rollback_argsStandardScheme getScheme() {
+        return new rollback_argsStandardScheme();
       }
     }
 
-    private static class xa_rollback_argsStandardScheme extends StandardScheme<xa_rollback_args> {
+    private static class rollback_argsStandardScheme extends StandardScheme<rollback_args> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, xa_rollback_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, rollback_args struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -2169,7 +2169,7 @@ public class AcidothParticipantXAServices {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, xa_rollback_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, rollback_args struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -2184,16 +2184,16 @@ public class AcidothParticipantXAServices {
 
     }
 
-    private static class xa_rollback_argsTupleSchemeFactory implements SchemeFactory {
-      public xa_rollback_argsTupleScheme getScheme() {
-        return new xa_rollback_argsTupleScheme();
+    private static class rollback_argsTupleSchemeFactory implements SchemeFactory {
+      public rollback_argsTupleScheme getScheme() {
+        return new rollback_argsTupleScheme();
       }
     }
 
-    private static class xa_rollback_argsTupleScheme extends TupleScheme<xa_rollback_args> {
+    private static class rollback_argsTupleScheme extends TupleScheme<rollback_args> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, xa_rollback_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, rollback_args struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetIdentifier()) {
@@ -2206,7 +2206,7 @@ public class AcidothParticipantXAServices {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, xa_rollback_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, rollback_args struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -2218,28 +2218,28 @@ public class AcidothParticipantXAServices {
 
   }
 
-  public static class xa_rollback_result implements org.apache.thrift.TBase<xa_rollback_result, xa_rollback_result._Fields>, java.io.Serializable, Cloneable   {
-    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("xa_rollback_result");
+  public static class rollback_result implements org.apache.thrift.TBase<rollback_result, rollback_result._Fields>, java.io.Serializable, Cloneable   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("rollback_result");
 
     private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField("success", org.apache.thrift.protocol.TType.I32, (short)0);
 
     private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
     static {
-      schemes.put(StandardScheme.class, new xa_rollback_resultStandardSchemeFactory());
-      schemes.put(TupleScheme.class, new xa_rollback_resultTupleSchemeFactory());
+      schemes.put(StandardScheme.class, new rollback_resultStandardSchemeFactory());
+      schemes.put(TupleScheme.class, new rollback_resultTupleSchemeFactory());
     }
 
     /**
      * 
-     * @see PCResponse
+     * @see ServiceResponse
      */
-    public PCResponse success; // required
+    public ServiceResponse success; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
       /**
        * 
-       * @see PCResponse
+       * @see ServiceResponse
        */
       SUCCESS((short)0, "success");
 
@@ -2302,16 +2302,16 @@ public class AcidothParticipantXAServices {
     static {
       Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
       tmpMap.put(_Fields.SUCCESS, new org.apache.thrift.meta_data.FieldMetaData("success", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.thrift.meta_data.EnumMetaData(org.apache.thrift.protocol.TType.ENUM, PCResponse.class)));
+          new org.apache.thrift.meta_data.EnumMetaData(org.apache.thrift.protocol.TType.ENUM, ServiceResponse.class)));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
-      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(xa_rollback_result.class, metaDataMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(rollback_result.class, metaDataMap);
     }
 
-    public xa_rollback_result() {
+    public rollback_result() {
     }
 
-    public xa_rollback_result(
-      PCResponse success)
+    public rollback_result(
+      ServiceResponse success)
     {
       this();
       this.success = success;
@@ -2320,14 +2320,14 @@ public class AcidothParticipantXAServices {
     /**
      * Performs a deep copy on <i>other</i>.
      */
-    public xa_rollback_result(xa_rollback_result other) {
+    public rollback_result(rollback_result other) {
       if (other.isSetSuccess()) {
         this.success = other.success;
       }
     }
 
-    public xa_rollback_result deepCopy() {
-      return new xa_rollback_result(this);
+    public rollback_result deepCopy() {
+      return new rollback_result(this);
     }
 
     @Override
@@ -2337,17 +2337,17 @@ public class AcidothParticipantXAServices {
 
     /**
      * 
-     * @see PCResponse
+     * @see ServiceResponse
      */
-    public PCResponse getSuccess() {
+    public ServiceResponse getSuccess() {
       return this.success;
     }
 
     /**
      * 
-     * @see PCResponse
+     * @see ServiceResponse
      */
-    public xa_rollback_result setSuccess(PCResponse success) {
+    public rollback_result setSuccess(ServiceResponse success) {
       this.success = success;
       return this;
     }
@@ -2373,7 +2373,7 @@ public class AcidothParticipantXAServices {
         if (value == null) {
           unsetSuccess();
         } else {
-          setSuccess((PCResponse)value);
+          setSuccess((ServiceResponse)value);
         }
         break;
 
@@ -2406,12 +2406,12 @@ public class AcidothParticipantXAServices {
     public boolean equals(Object that) {
       if (that == null)
         return false;
-      if (that instanceof xa_rollback_result)
-        return this.equals((xa_rollback_result)that);
+      if (that instanceof rollback_result)
+        return this.equals((rollback_result)that);
       return false;
     }
 
-    public boolean equals(xa_rollback_result that) {
+    public boolean equals(rollback_result that) {
       if (that == null)
         return false;
 
@@ -2432,13 +2432,13 @@ public class AcidothParticipantXAServices {
       return 0;
     }
 
-    public int compareTo(xa_rollback_result other) {
+    public int compareTo(rollback_result other) {
       if (!getClass().equals(other.getClass())) {
         return getClass().getName().compareTo(other.getClass().getName());
       }
 
       int lastComparison = 0;
-      xa_rollback_result typedOther = (xa_rollback_result)other;
+      rollback_result typedOther = (rollback_result)other;
 
       lastComparison = Boolean.valueOf(isSetSuccess()).compareTo(typedOther.isSetSuccess());
       if (lastComparison != 0) {
@@ -2457,17 +2457,17 @@ public class AcidothParticipantXAServices {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
       }
 
     @Override
     public String toString() {
-      StringBuilder sb = new StringBuilder("xa_rollback_result(");
+      StringBuilder sb = new StringBuilder("rollback_result(");
       boolean first = true;
 
       sb.append("success:");
@@ -2481,7 +2481,7 @@ public class AcidothParticipantXAServices {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -2489,7 +2489,7 @@ public class AcidothParticipantXAServices {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -2497,20 +2497,20 @@ public class AcidothParticipantXAServices {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
 
-    private static class xa_rollback_resultStandardSchemeFactory implements SchemeFactory {
-      public xa_rollback_resultStandardScheme getScheme() {
-        return new xa_rollback_resultStandardScheme();
+    private static class rollback_resultStandardSchemeFactory implements SchemeFactory {
+      public rollback_resultStandardScheme getScheme() {
+        return new rollback_resultStandardScheme();
       }
     }
 
-    private static class xa_rollback_resultStandardScheme extends StandardScheme<xa_rollback_result> {
+    private static class rollback_resultStandardScheme extends StandardScheme<rollback_result> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, xa_rollback_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, rollback_result struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -2522,7 +2522,7 @@ public class AcidothParticipantXAServices {
           switch (schemeField.id) {
             case 0: // SUCCESS
               if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
-                struct.success = PCResponse.findByValue(iprot.readI32());
+                struct.success = ServiceResponse.findByValue(iprot.readI32());
                 struct.setSuccessIsSet(true);
               } else { 
                 org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -2539,7 +2539,7 @@ public class AcidothParticipantXAServices {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, xa_rollback_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, rollback_result struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -2554,16 +2554,16 @@ public class AcidothParticipantXAServices {
 
     }
 
-    private static class xa_rollback_resultTupleSchemeFactory implements SchemeFactory {
-      public xa_rollback_resultTupleScheme getScheme() {
-        return new xa_rollback_resultTupleScheme();
+    private static class rollback_resultTupleSchemeFactory implements SchemeFactory {
+      public rollback_resultTupleScheme getScheme() {
+        return new rollback_resultTupleScheme();
       }
     }
 
-    private static class xa_rollback_resultTupleScheme extends TupleScheme<xa_rollback_result> {
+    private static class rollback_resultTupleScheme extends TupleScheme<rollback_result> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, xa_rollback_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, rollback_result struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetSuccess()) {
@@ -2576,11 +2576,11 @@ public class AcidothParticipantXAServices {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, xa_rollback_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, rollback_result struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
-          struct.success = PCResponse.findByValue(iprot.readI32());
+          struct.success = ServiceResponse.findByValue(iprot.readI32());
           struct.setSuccessIsSet(true);
         }
       }
@@ -2588,15 +2588,15 @@ public class AcidothParticipantXAServices {
 
   }
 
-  public static class xa_prepare_args implements org.apache.thrift.TBase<xa_prepare_args, xa_prepare_args._Fields>, java.io.Serializable, Cloneable   {
-    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("xa_prepare_args");
+  public static class prepare_args implements org.apache.thrift.TBase<prepare_args, prepare_args._Fields>, java.io.Serializable, Cloneable   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("prepare_args");
 
     private static final org.apache.thrift.protocol.TField IDENTIFIER_FIELD_DESC = new org.apache.thrift.protocol.TField("identifier", org.apache.thrift.protocol.TType.STRING, (short)1);
 
     private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
     static {
-      schemes.put(StandardScheme.class, new xa_prepare_argsStandardSchemeFactory());
-      schemes.put(TupleScheme.class, new xa_prepare_argsTupleSchemeFactory());
+      schemes.put(StandardScheme.class, new prepare_argsStandardSchemeFactory());
+      schemes.put(TupleScheme.class, new prepare_argsTupleSchemeFactory());
     }
 
     public String identifier; // required
@@ -2666,13 +2666,13 @@ public class AcidothParticipantXAServices {
       tmpMap.put(_Fields.IDENTIFIER, new org.apache.thrift.meta_data.FieldMetaData("identifier", org.apache.thrift.TFieldRequirementType.DEFAULT, 
           new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
-      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(xa_prepare_args.class, metaDataMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(prepare_args.class, metaDataMap);
     }
 
-    public xa_prepare_args() {
+    public prepare_args() {
     }
 
-    public xa_prepare_args(
+    public prepare_args(
       String identifier)
     {
       this();
@@ -2682,14 +2682,14 @@ public class AcidothParticipantXAServices {
     /**
      * Performs a deep copy on <i>other</i>.
      */
-    public xa_prepare_args(xa_prepare_args other) {
+    public prepare_args(prepare_args other) {
       if (other.isSetIdentifier()) {
         this.identifier = other.identifier;
       }
     }
 
-    public xa_prepare_args deepCopy() {
-      return new xa_prepare_args(this);
+    public prepare_args deepCopy() {
+      return new prepare_args(this);
     }
 
     @Override
@@ -2701,7 +2701,7 @@ public class AcidothParticipantXAServices {
       return this.identifier;
     }
 
-    public xa_prepare_args setIdentifier(String identifier) {
+    public prepare_args setIdentifier(String identifier) {
       this.identifier = identifier;
       return this;
     }
@@ -2760,12 +2760,12 @@ public class AcidothParticipantXAServices {
     public boolean equals(Object that) {
       if (that == null)
         return false;
-      if (that instanceof xa_prepare_args)
-        return this.equals((xa_prepare_args)that);
+      if (that instanceof prepare_args)
+        return this.equals((prepare_args)that);
       return false;
     }
 
-    public boolean equals(xa_prepare_args that) {
+    public boolean equals(prepare_args that) {
       if (that == null)
         return false;
 
@@ -2786,13 +2786,13 @@ public class AcidothParticipantXAServices {
       return 0;
     }
 
-    public int compareTo(xa_prepare_args other) {
+    public int compareTo(prepare_args other) {
       if (!getClass().equals(other.getClass())) {
         return getClass().getName().compareTo(other.getClass().getName());
       }
 
       int lastComparison = 0;
-      xa_prepare_args typedOther = (xa_prepare_args)other;
+      prepare_args typedOther = (prepare_args)other;
 
       lastComparison = Boolean.valueOf(isSetIdentifier()).compareTo(typedOther.isSetIdentifier());
       if (lastComparison != 0) {
@@ -2811,17 +2811,17 @@ public class AcidothParticipantXAServices {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
     }
 
     @Override
     public String toString() {
-      StringBuilder sb = new StringBuilder("xa_prepare_args(");
+      StringBuilder sb = new StringBuilder("prepare_args(");
       boolean first = true;
 
       sb.append("identifier:");
@@ -2835,7 +2835,7 @@ public class AcidothParticipantXAServices {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -2843,7 +2843,7 @@ public class AcidothParticipantXAServices {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -2851,20 +2851,20 @@ public class AcidothParticipantXAServices {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
 
-    private static class xa_prepare_argsStandardSchemeFactory implements SchemeFactory {
-      public xa_prepare_argsStandardScheme getScheme() {
-        return new xa_prepare_argsStandardScheme();
+    private static class prepare_argsStandardSchemeFactory implements SchemeFactory {
+      public prepare_argsStandardScheme getScheme() {
+        return new prepare_argsStandardScheme();
       }
     }
 
-    private static class xa_prepare_argsStandardScheme extends StandardScheme<xa_prepare_args> {
+    private static class prepare_argsStandardScheme extends StandardScheme<prepare_args> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, xa_prepare_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, prepare_args struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -2893,7 +2893,7 @@ public class AcidothParticipantXAServices {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, xa_prepare_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, prepare_args struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -2908,16 +2908,16 @@ public class AcidothParticipantXAServices {
 
     }
 
-    private static class xa_prepare_argsTupleSchemeFactory implements SchemeFactory {
-      public xa_prepare_argsTupleScheme getScheme() {
-        return new xa_prepare_argsTupleScheme();
+    private static class prepare_argsTupleSchemeFactory implements SchemeFactory {
+      public prepare_argsTupleScheme getScheme() {
+        return new prepare_argsTupleScheme();
       }
     }
 
-    private static class xa_prepare_argsTupleScheme extends TupleScheme<xa_prepare_args> {
+    private static class prepare_argsTupleScheme extends TupleScheme<prepare_args> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, xa_prepare_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, prepare_args struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetIdentifier()) {
@@ -2930,7 +2930,7 @@ public class AcidothParticipantXAServices {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, xa_prepare_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, prepare_args struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -2942,28 +2942,28 @@ public class AcidothParticipantXAServices {
 
   }
 
-  public static class xa_prepare_result implements org.apache.thrift.TBase<xa_prepare_result, xa_prepare_result._Fields>, java.io.Serializable, Cloneable   {
-    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("xa_prepare_result");
+  public static class prepare_result implements org.apache.thrift.TBase<prepare_result, prepare_result._Fields>, java.io.Serializable, Cloneable   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("prepare_result");
 
     private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField("success", org.apache.thrift.protocol.TType.I32, (short)0);
 
     private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
     static {
-      schemes.put(StandardScheme.class, new xa_prepare_resultStandardSchemeFactory());
-      schemes.put(TupleScheme.class, new xa_prepare_resultTupleSchemeFactory());
+      schemes.put(StandardScheme.class, new prepare_resultStandardSchemeFactory());
+      schemes.put(TupleScheme.class, new prepare_resultTupleSchemeFactory());
     }
 
     /**
      * 
-     * @see PCResponse
+     * @see ServiceResponse
      */
-    public PCResponse success; // required
+    public ServiceResponse success; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
       /**
        * 
-       * @see PCResponse
+       * @see ServiceResponse
        */
       SUCCESS((short)0, "success");
 
@@ -3026,16 +3026,16 @@ public class AcidothParticipantXAServices {
     static {
       Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
       tmpMap.put(_Fields.SUCCESS, new org.apache.thrift.meta_data.FieldMetaData("success", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.thrift.meta_data.EnumMetaData(org.apache.thrift.protocol.TType.ENUM, PCResponse.class)));
+          new org.apache.thrift.meta_data.EnumMetaData(org.apache.thrift.protocol.TType.ENUM, ServiceResponse.class)));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
-      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(xa_prepare_result.class, metaDataMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(prepare_result.class, metaDataMap);
     }
 
-    public xa_prepare_result() {
+    public prepare_result() {
     }
 
-    public xa_prepare_result(
-      PCResponse success)
+    public prepare_result(
+      ServiceResponse success)
     {
       this();
       this.success = success;
@@ -3044,14 +3044,14 @@ public class AcidothParticipantXAServices {
     /**
      * Performs a deep copy on <i>other</i>.
      */
-    public xa_prepare_result(xa_prepare_result other) {
+    public prepare_result(prepare_result other) {
       if (other.isSetSuccess()) {
         this.success = other.success;
       }
     }
 
-    public xa_prepare_result deepCopy() {
-      return new xa_prepare_result(this);
+    public prepare_result deepCopy() {
+      return new prepare_result(this);
     }
 
     @Override
@@ -3061,17 +3061,17 @@ public class AcidothParticipantXAServices {
 
     /**
      * 
-     * @see PCResponse
+     * @see ServiceResponse
      */
-    public PCResponse getSuccess() {
+    public ServiceResponse getSuccess() {
       return this.success;
     }
 
     /**
      * 
-     * @see PCResponse
+     * @see ServiceResponse
      */
-    public xa_prepare_result setSuccess(PCResponse success) {
+    public prepare_result setSuccess(ServiceResponse success) {
       this.success = success;
       return this;
     }
@@ -3097,7 +3097,7 @@ public class AcidothParticipantXAServices {
         if (value == null) {
           unsetSuccess();
         } else {
-          setSuccess((PCResponse)value);
+          setSuccess((ServiceResponse)value);
         }
         break;
 
@@ -3130,12 +3130,12 @@ public class AcidothParticipantXAServices {
     public boolean equals(Object that) {
       if (that == null)
         return false;
-      if (that instanceof xa_prepare_result)
-        return this.equals((xa_prepare_result)that);
+      if (that instanceof prepare_result)
+        return this.equals((prepare_result)that);
       return false;
     }
 
-    public boolean equals(xa_prepare_result that) {
+    public boolean equals(prepare_result that) {
       if (that == null)
         return false;
 
@@ -3156,13 +3156,13 @@ public class AcidothParticipantXAServices {
       return 0;
     }
 
-    public int compareTo(xa_prepare_result other) {
+    public int compareTo(prepare_result other) {
       if (!getClass().equals(other.getClass())) {
         return getClass().getName().compareTo(other.getClass().getName());
       }
 
       int lastComparison = 0;
-      xa_prepare_result typedOther = (xa_prepare_result)other;
+      prepare_result typedOther = (prepare_result)other;
 
       lastComparison = Boolean.valueOf(isSetSuccess()).compareTo(typedOther.isSetSuccess());
       if (lastComparison != 0) {
@@ -3181,17 +3181,17 @@ public class AcidothParticipantXAServices {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
       }
 
     @Override
     public String toString() {
-      StringBuilder sb = new StringBuilder("xa_prepare_result(");
+      StringBuilder sb = new StringBuilder("prepare_result(");
       boolean first = true;
 
       sb.append("success:");
@@ -3205,7 +3205,7 @@ public class AcidothParticipantXAServices {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -3213,7 +3213,7 @@ public class AcidothParticipantXAServices {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -3221,20 +3221,20 @@ public class AcidothParticipantXAServices {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
 
-    private static class xa_prepare_resultStandardSchemeFactory implements SchemeFactory {
-      public xa_prepare_resultStandardScheme getScheme() {
-        return new xa_prepare_resultStandardScheme();
+    private static class prepare_resultStandardSchemeFactory implements SchemeFactory {
+      public prepare_resultStandardScheme getScheme() {
+        return new prepare_resultStandardScheme();
       }
     }
 
-    private static class xa_prepare_resultStandardScheme extends StandardScheme<xa_prepare_result> {
+    private static class prepare_resultStandardScheme extends StandardScheme<prepare_result> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, xa_prepare_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, prepare_result struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -3246,7 +3246,7 @@ public class AcidothParticipantXAServices {
           switch (schemeField.id) {
             case 0: // SUCCESS
               if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
-                struct.success = PCResponse.findByValue(iprot.readI32());
+                struct.success = ServiceResponse.findByValue(iprot.readI32());
                 struct.setSuccessIsSet(true);
               } else { 
                 org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -3263,7 +3263,7 @@ public class AcidothParticipantXAServices {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, xa_prepare_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, prepare_result struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -3278,16 +3278,16 @@ public class AcidothParticipantXAServices {
 
     }
 
-    private static class xa_prepare_resultTupleSchemeFactory implements SchemeFactory {
-      public xa_prepare_resultTupleScheme getScheme() {
-        return new xa_prepare_resultTupleScheme();
+    private static class prepare_resultTupleSchemeFactory implements SchemeFactory {
+      public prepare_resultTupleScheme getScheme() {
+        return new prepare_resultTupleScheme();
       }
     }
 
-    private static class xa_prepare_resultTupleScheme extends TupleScheme<xa_prepare_result> {
+    private static class prepare_resultTupleScheme extends TupleScheme<prepare_result> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, xa_prepare_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, prepare_result struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetSuccess()) {
@@ -3300,11 +3300,11 @@ public class AcidothParticipantXAServices {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, xa_prepare_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, prepare_result struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
-          struct.success = PCResponse.findByValue(iprot.readI32());
+          struct.success = ServiceResponse.findByValue(iprot.readI32());
           struct.setSuccessIsSet(true);
         }
       }

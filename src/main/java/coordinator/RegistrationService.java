@@ -1,4 +1,4 @@
-package acidoth.coordinator;
+package coordinator;
 
 import XAResources.XAResource;
 import javax.transaction.RollbackException;
@@ -26,8 +26,8 @@ public class RegistrationService {
         boolean registerResult = false;
         try {
             Transaction transaction = TransactionHandler.getInstance().getTransaction(transactionID);
-            XAResource xaResource = null;
-            //todo create xa resource for participant
+            XAResource xaResource = new XAResource(participantAddr, participantPort);
+            xaResource.setTransactionId(transactionID);
 
             registerResult = transaction.enlistResource(xaResource);
         } catch (RollbackException e) {

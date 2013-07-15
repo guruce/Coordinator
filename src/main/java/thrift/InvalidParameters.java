@@ -4,7 +4,7 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-package acidoth.thrift.xa;
+package thrift;
 
 import org.apache.thrift.scheme.IScheme;
 import org.apache.thrift.scheme.SchemeFactory;
@@ -30,8 +30,8 @@ import java.util.Arrays;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class InvalidProtocol extends TException implements org.apache.thrift.TBase<InvalidProtocol, InvalidProtocol._Fields>, java.io.Serializable, Cloneable {
-  private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("InvalidProtocol");
+public class InvalidParameters extends TException implements org.apache.thrift.TBase<InvalidParameters, InvalidParameters._Fields>, java.io.Serializable, Cloneable {
+  private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("InvalidParameters");
 
   private static final org.apache.thrift.protocol.TField CODE_FIELD_DESC = new org.apache.thrift.protocol.TField("code", org.apache.thrift.protocol.TType.STRING, (short)1);
   private static final org.apache.thrift.protocol.TField SUBCODE_FIELD_DESC = new org.apache.thrift.protocol.TField("subcode", org.apache.thrift.protocol.TType.STRING, (short)2);
@@ -39,8 +39,8 @@ public class InvalidProtocol extends TException implements org.apache.thrift.TBa
 
   private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
   static {
-    schemes.put(StandardScheme.class, new InvalidProtocolStandardSchemeFactory());
-    schemes.put(TupleScheme.class, new InvalidProtocolTupleSchemeFactory());
+    schemes.put(StandardScheme.class, new InvalidParametersStandardSchemeFactory());
+    schemes.put(TupleScheme.class, new InvalidParametersTupleSchemeFactory());
   }
 
   public String code; // required
@@ -122,13 +122,13 @@ public class InvalidProtocol extends TException implements org.apache.thrift.TBa
     tmpMap.put(_Fields.REASON, new org.apache.thrift.meta_data.FieldMetaData("reason", org.apache.thrift.TFieldRequirementType.REQUIRED, 
         new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
     metaDataMap = Collections.unmodifiableMap(tmpMap);
-    org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(InvalidProtocol.class, metaDataMap);
+    org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(InvalidParameters.class, metaDataMap);
   }
 
-  public InvalidProtocol() {
+  public InvalidParameters() {
   }
 
-  public InvalidProtocol(
+  public InvalidParameters(
     String code,
     String subcode,
     String reason)
@@ -142,7 +142,7 @@ public class InvalidProtocol extends TException implements org.apache.thrift.TBa
   /**
    * Performs a deep copy on <i>other</i>.
    */
-  public InvalidProtocol(InvalidProtocol other) {
+  public InvalidParameters(InvalidParameters other) {
     if (other.isSetCode()) {
       this.code = other.code;
     }
@@ -154,8 +154,8 @@ public class InvalidProtocol extends TException implements org.apache.thrift.TBa
     }
   }
 
-  public InvalidProtocol deepCopy() {
-    return new InvalidProtocol(this);
+  public InvalidParameters deepCopy() {
+    return new InvalidParameters(this);
   }
 
   @Override
@@ -169,7 +169,7 @@ public class InvalidProtocol extends TException implements org.apache.thrift.TBa
     return this.code;
   }
 
-  public InvalidProtocol setCode(String code) {
+  public InvalidParameters setCode(String code) {
     this.code = code;
     return this;
   }
@@ -193,7 +193,7 @@ public class InvalidProtocol extends TException implements org.apache.thrift.TBa
     return this.subcode;
   }
 
-  public InvalidProtocol setSubcode(String subcode) {
+  public InvalidParameters setSubcode(String subcode) {
     this.subcode = subcode;
     return this;
   }
@@ -217,7 +217,7 @@ public class InvalidProtocol extends TException implements org.apache.thrift.TBa
     return this.reason;
   }
 
-  public InvalidProtocol setReason(String reason) {
+  public InvalidParameters setReason(String reason) {
     this.reason = reason;
     return this;
   }
@@ -302,12 +302,12 @@ public class InvalidProtocol extends TException implements org.apache.thrift.TBa
   public boolean equals(Object that) {
     if (that == null)
       return false;
-    if (that instanceof InvalidProtocol)
-      return this.equals((InvalidProtocol)that);
+    if (that instanceof InvalidParameters)
+      return this.equals((InvalidParameters)that);
     return false;
   }
 
-  public boolean equals(InvalidProtocol that) {
+  public boolean equals(InvalidParameters that) {
     if (that == null)
       return false;
 
@@ -346,13 +346,13 @@ public class InvalidProtocol extends TException implements org.apache.thrift.TBa
     return 0;
   }
 
-  public int compareTo(InvalidProtocol other) {
+  public int compareTo(InvalidParameters other) {
     if (!getClass().equals(other.getClass())) {
       return getClass().getName().compareTo(other.getClass().getName());
     }
 
     int lastComparison = 0;
-    InvalidProtocol typedOther = (InvalidProtocol)other;
+    InvalidParameters typedOther = (InvalidParameters)other;
 
     lastComparison = Boolean.valueOf(isSetCode()).compareTo(typedOther.isSetCode());
     if (lastComparison != 0) {
@@ -391,17 +391,17 @@ public class InvalidProtocol extends TException implements org.apache.thrift.TBa
     return _Fields.findByThriftId(fieldId);
   }
 
-  public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+  public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
     schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
   }
 
-  public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+  public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
     schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
   }
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder("InvalidProtocol(");
+    StringBuilder sb = new StringBuilder("InvalidParameters(");
     boolean first = true;
 
     sb.append("code:");
@@ -431,16 +431,16 @@ public class InvalidProtocol extends TException implements org.apache.thrift.TBa
     return sb.toString();
   }
 
-  public void validate() throws org.apache.thrift.TException {
+  public void validate() throws TException {
     // check for required fields
     if (code == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'code' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'code' was not present! Struct: " + toString());
     }
     if (subcode == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'subcode' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'subcode' was not present! Struct: " + toString());
     }
     if (reason == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'reason' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'reason' was not present! Struct: " + toString());
     }
     // check for sub-struct validity
   }
@@ -448,7 +448,7 @@ public class InvalidProtocol extends TException implements org.apache.thrift.TBa
   private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
     try {
       write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-    } catch (org.apache.thrift.TException te) {
+    } catch (TException te) {
       throw new java.io.IOException(te);
     }
   }
@@ -456,20 +456,20 @@ public class InvalidProtocol extends TException implements org.apache.thrift.TBa
   private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
     try {
       read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-    } catch (org.apache.thrift.TException te) {
+    } catch (TException te) {
       throw new java.io.IOException(te);
     }
   }
 
-  private static class InvalidProtocolStandardSchemeFactory implements SchemeFactory {
-    public InvalidProtocolStandardScheme getScheme() {
-      return new InvalidProtocolStandardScheme();
+  private static class InvalidParametersStandardSchemeFactory implements SchemeFactory {
+    public InvalidParametersStandardScheme getScheme() {
+      return new InvalidParametersStandardScheme();
     }
   }
 
-  private static class InvalidProtocolStandardScheme extends StandardScheme<InvalidProtocol> {
+  private static class InvalidParametersStandardScheme extends StandardScheme<InvalidParameters> {
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot, InvalidProtocol struct) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot, InvalidParameters struct) throws TException {
       org.apache.thrift.protocol.TField schemeField;
       iprot.readStructBegin();
       while (true)
@@ -514,7 +514,7 @@ public class InvalidProtocol extends TException implements org.apache.thrift.TBa
       struct.validate();
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot, InvalidProtocol struct) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot, InvalidParameters struct) throws TException {
       struct.validate();
 
       oprot.writeStructBegin(STRUCT_DESC);
@@ -539,16 +539,16 @@ public class InvalidProtocol extends TException implements org.apache.thrift.TBa
 
   }
 
-  private static class InvalidProtocolTupleSchemeFactory implements SchemeFactory {
-    public InvalidProtocolTupleScheme getScheme() {
-      return new InvalidProtocolTupleScheme();
+  private static class InvalidParametersTupleSchemeFactory implements SchemeFactory {
+    public InvalidParametersTupleScheme getScheme() {
+      return new InvalidParametersTupleScheme();
     }
   }
 
-  private static class InvalidProtocolTupleScheme extends TupleScheme<InvalidProtocol> {
+  private static class InvalidParametersTupleScheme extends TupleScheme<InvalidParameters> {
 
     @Override
-    public void write(org.apache.thrift.protocol.TProtocol prot, InvalidProtocol struct) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol prot, InvalidParameters struct) throws TException {
       TTupleProtocol oprot = (TTupleProtocol) prot;
       oprot.writeString(struct.code);
       oprot.writeString(struct.subcode);
@@ -556,7 +556,7 @@ public class InvalidProtocol extends TException implements org.apache.thrift.TBa
     }
 
     @Override
-    public void read(org.apache.thrift.protocol.TProtocol prot, InvalidProtocol struct) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol prot, InvalidParameters struct) throws TException {
       TTupleProtocol iprot = (TTupleProtocol) prot;
       struct.code = iprot.readString();
       struct.setCodeIsSet(true);

@@ -1,4 +1,4 @@
-package acidoth.coordinator;
+package coordinator;
 
 import com.atomikos.icatch.jta.UserTransactionManager;
 import javax.transaction.NotSupportedException;

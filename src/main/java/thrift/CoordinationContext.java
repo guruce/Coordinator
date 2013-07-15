@@ -4,7 +4,7 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-package acidoth.thrift.xa;
+package thrift;
 
 import org.apache.thrift.scheme.IScheme;
 import org.apache.thrift.scheme.SchemeFactory;
@@ -37,7 +37,6 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
   private static final org.apache.thrift.protocol.TField COORDINATION_TYPE_FIELD_DESC = new org.apache.thrift.protocol.TField("coordination_type", org.apache.thrift.protocol.TType.STRING, (short)2);
   private static final org.apache.thrift.protocol.TField REGISTRATION_EPR_FIELD_DESC = new org.apache.thrift.protocol.TField("registrationEPR", org.apache.thrift.protocol.TType.STRUCT, (short)3);
   private static final org.apache.thrift.protocol.TField EXPIRES_FIELD_DESC = new org.apache.thrift.protocol.TField("expires", org.apache.thrift.protocol.TType.I32, (short)4);
-  private static final org.apache.thrift.protocol.TField ISOLATION_LEVEL_FIELD_DESC = new org.apache.thrift.protocol.TField("isolation_level", org.apache.thrift.protocol.TType.STRING, (short)5);
 
   private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
   static {
@@ -49,15 +48,13 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
   public String coordination_type; // required
   public EndPointReference registrationEPR; // required
   public int expires; // required
-  public String isolation_level; // required
 
   /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
   public enum _Fields implements org.apache.thrift.TFieldIdEnum {
     IDENTIFIER((short)1, "identifier"),
     COORDINATION_TYPE((short)2, "coordination_type"),
     REGISTRATION_EPR((short)3, "registrationEPR"),
-    EXPIRES((short)4, "expires"),
-    ISOLATION_LEVEL((short)5, "isolation_level");
+    EXPIRES((short)4, "expires");
 
     private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
 
@@ -80,8 +77,6 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
           return REGISTRATION_EPR;
         case 4: // EXPIRES
           return EXPIRES;
-        case 5: // ISOLATION_LEVEL
-          return ISOLATION_LEVEL;
         default:
           return null;
       }
@@ -135,8 +130,6 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
         new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, EndPointReference.class)));
     tmpMap.put(_Fields.EXPIRES, new org.apache.thrift.meta_data.FieldMetaData("expires", org.apache.thrift.TFieldRequirementType.REQUIRED, 
         new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
-    tmpMap.put(_Fields.ISOLATION_LEVEL, new org.apache.thrift.meta_data.FieldMetaData("isolation_level", org.apache.thrift.TFieldRequirementType.REQUIRED, 
-        new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
     metaDataMap = Collections.unmodifiableMap(tmpMap);
     org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(CoordinationContext.class, metaDataMap);
   }
@@ -148,8 +141,7 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
     String identifier,
     String coordination_type,
     EndPointReference registrationEPR,
-    int expires,
-    String isolation_level)
+    int expires)
   {
     this();
     this.identifier = identifier;
@@ -157,7 +149,6 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
     this.registrationEPR = registrationEPR;
     this.expires = expires;
     setExpiresIsSet(true);
-    this.isolation_level = isolation_level;
   }
 
   /**
@@ -175,9 +166,6 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
       this.registrationEPR = new EndPointReference(other.registrationEPR);
     }
     this.expires = other.expires;
-    if (other.isSetIsolation_level()) {
-      this.isolation_level = other.isolation_level;
-    }
   }
 
   public CoordinationContext deepCopy() {
@@ -191,7 +179,6 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
     this.registrationEPR = null;
     setExpiresIsSet(false);
     this.expires = 0;
-    this.isolation_level = null;
   }
 
   public String getIdentifier() {
@@ -289,30 +276,6 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
     __isset_bitfield = EncodingUtils.setBit(__isset_bitfield, __EXPIRES_ISSET_ID, value);
   }
 
-  public String getIsolation_level() {
-    return this.isolation_level;
-  }
-
-  public CoordinationContext setIsolation_level(String isolation_level) {
-    this.isolation_level = isolation_level;
-    return this;
-  }
-
-  public void unsetIsolation_level() {
-    this.isolation_level = null;
-  }
-
-  /** Returns true if field isolation_level is set (has been assigned a value) and false otherwise */
-  public boolean isSetIsolation_level() {
-    return this.isolation_level != null;
-  }
-
-  public void setIsolation_levelIsSet(boolean value) {
-    if (!value) {
-      this.isolation_level = null;
-    }
-  }
-
   public void setFieldValue(_Fields field, Object value) {
     switch (field) {
     case IDENTIFIER:
@@ -347,14 +310,6 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
       }
       break;
 
-    case ISOLATION_LEVEL:
-      if (value == null) {
-        unsetIsolation_level();
-      } else {
-        setIsolation_level((String)value);
-      }
-      break;
-
     }
   }
 
@@ -371,9 +326,6 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
 
     case EXPIRES:
       return Integer.valueOf(getExpires());
-
-    case ISOLATION_LEVEL:
-      return getIsolation_level();
 
     }
     throw new IllegalStateException();
@@ -394,8 +346,6 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
       return isSetRegistrationEPR();
     case EXPIRES:
       return isSetExpires();
-    case ISOLATION_LEVEL:
-      return isSetIsolation_level();
     }
     throw new IllegalStateException();
   }
@@ -446,15 +396,6 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
       if (!(this_present_expires && that_present_expires))
         return false;
       if (this.expires != that.expires)
-        return false;
-    }
-
-    boolean this_present_isolation_level = true && this.isSetIsolation_level();
-    boolean that_present_isolation_level = true && that.isSetIsolation_level();
-    if (this_present_isolation_level || that_present_isolation_level) {
-      if (!(this_present_isolation_level && that_present_isolation_level))
-        return false;
-      if (!this.isolation_level.equals(that.isolation_level))
         return false;
     }
 
@@ -514,16 +455,6 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
         return lastComparison;
       }
     }
-    lastComparison = Boolean.valueOf(isSetIsolation_level()).compareTo(typedOther.isSetIsolation_level());
-    if (lastComparison != 0) {
-      return lastComparison;
-    }
-    if (isSetIsolation_level()) {
-      lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.isolation_level, typedOther.isolation_level);
-      if (lastComparison != 0) {
-        return lastComparison;
-      }
-    }
     return 0;
   }
 
@@ -531,11 +462,11 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
     return _Fields.findByThriftId(fieldId);
   }
 
-  public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+  public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
     schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
   }
 
-  public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+  public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
     schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
   }
 
@@ -571,33 +502,22 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
     sb.append("expires:");
     sb.append(this.expires);
     first = false;
-    if (!first) sb.append(", ");
-    sb.append("isolation_level:");
-    if (this.isolation_level == null) {
-      sb.append("null");
-    } else {
-      sb.append(this.isolation_level);
-    }
-    first = false;
     sb.append(")");
     return sb.toString();
   }
 
-  public void validate() throws org.apache.thrift.TException {
+  public void validate() throws TException {
     // check for required fields
     if (identifier == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'identifier' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'identifier' was not present! Struct: " + toString());
     }
     if (coordination_type == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'coordination_type' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'coordination_type' was not present! Struct: " + toString());
     }
     if (registrationEPR == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'registrationEPR' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'registrationEPR' was not present! Struct: " + toString());
     }
     // alas, we cannot check 'expires' because it's a primitive and you chose the non-beans generator.
-    if (isolation_level == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'isolation_level' was not present! Struct: " + toString());
-    }
     // check for sub-struct validity
     if (registrationEPR != null) {
       registrationEPR.validate();
@@ -607,7 +527,7 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
   private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
     try {
       write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-    } catch (org.apache.thrift.TException te) {
+    } catch (TException te) {
       throw new java.io.IOException(te);
     }
   }
@@ -617,7 +537,7 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
       // it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor.
       __isset_bitfield = 0;
       read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-    } catch (org.apache.thrift.TException te) {
+    } catch (TException te) {
       throw new java.io.IOException(te);
     }
   }
@@ -630,7 +550,7 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
 
   private static class CoordinationContextStandardScheme extends StandardScheme<CoordinationContext> {
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot, CoordinationContext struct) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot, CoordinationContext struct) throws TException {
       org.apache.thrift.protocol.TField schemeField;
       iprot.readStructBegin();
       while (true)
@@ -673,14 +593,6 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
             break;
-          case 5: // ISOLATION_LEVEL
-            if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
-              struct.isolation_level = iprot.readString();
-              struct.setIsolation_levelIsSet(true);
-            } else { 
-              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-            }
-            break;
           default:
             org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
         }
@@ -690,12 +602,12 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
 
       // check for required fields of primitive type, which can't be checked in the validate method
       if (!struct.isSetExpires()) {
-        throw new org.apache.thrift.protocol.TProtocolException("Required field 'expires' was not found in serialized data! Struct: " + toString());
+        throw new TProtocolException("Required field 'expires' was not found in serialized data! Struct: " + toString());
       }
       struct.validate();
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot, CoordinationContext struct) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot, CoordinationContext struct) throws TException {
       struct.validate();
 
       oprot.writeStructBegin(STRUCT_DESC);
@@ -717,11 +629,6 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
       oprot.writeFieldBegin(EXPIRES_FIELD_DESC);
       oprot.writeI32(struct.expires);
       oprot.writeFieldEnd();
-      if (struct.isolation_level != null) {
-        oprot.writeFieldBegin(ISOLATION_LEVEL_FIELD_DESC);
-        oprot.writeString(struct.isolation_level);
-        oprot.writeFieldEnd();
-      }
       oprot.writeFieldStop();
       oprot.writeStructEnd();
     }
@@ -737,17 +644,16 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
   private static class CoordinationContextTupleScheme extends TupleScheme<CoordinationContext> {
 
     @Override
-    public void write(org.apache.thrift.protocol.TProtocol prot, CoordinationContext struct) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol prot, CoordinationContext struct) throws TException {
       TTupleProtocol oprot = (TTupleProtocol) prot;
       oprot.writeString(struct.identifier);
       oprot.writeString(struct.coordination_type);
       struct.registrationEPR.write(oprot);
       oprot.writeI32(struct.expires);
-      oprot.writeString(struct.isolation_level);
     }
 
     @Override
-    public void read(org.apache.thrift.protocol.TProtocol prot, CoordinationContext struct) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol prot, CoordinationContext struct) throws TException {
       TTupleProtocol iprot = (TTupleProtocol) prot;
       struct.identifier = iprot.readString();
       struct.setIdentifierIsSet(true);
@@ -758,8 +664,6 @@ public class CoordinationContext implements org.apache.thrift.TBase<Coordination
       struct.setRegistrationEPRIsSet(true);
       struct.expires = iprot.readI32();
       struct.setExpiresIsSet(true);
-      struct.isolation_level = iprot.readString();
-      struct.setIsolation_levelIsSet(true);
     }
   }
 

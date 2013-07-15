@@ -4,7 +4,7 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-package acidoth.thrift.xa;
+package thrift;
 
 import org.apache.thrift.scheme.IScheme;
 import org.apache.thrift.scheme.SchemeFactory;
@@ -34,7 +34,7 @@ public class EndPointReference implements org.apache.thrift.TBase<EndPointRefere
   private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("EndPointReference");
 
   private static final org.apache.thrift.protocol.TField ADDRESS_FIELD_DESC = new org.apache.thrift.protocol.TField("address", org.apache.thrift.protocol.TType.STRING, (short)1);
-  private static final org.apache.thrift.protocol.TField REFERENCE_PARAMETERS_FIELD_DESC = new org.apache.thrift.protocol.TField("reference_parameters", org.apache.thrift.protocol.TType.STRUCT, (short)2);
+  private static final org.apache.thrift.protocol.TField PRIVATE_INSTANCE_FIELD_DESC = new org.apache.thrift.protocol.TField("privateInstance", org.apache.thrift.protocol.TType.I32, (short)2);
 
   private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
   static {
@@ -43,12 +43,12 @@ public class EndPointReference implements org.apache.thrift.TBase<EndPointRefere
   }
 
   public String address; // required
-  public ReferenceParameters reference_parameters; // required
+  public int privateInstance; // required
 
   /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
   public enum _Fields implements org.apache.thrift.TFieldIdEnum {
     ADDRESS((short)1, "address"),
-    REFERENCE_PARAMETERS((short)2, "reference_parameters");
+    PRIVATE_INSTANCE((short)2, "privateInstance");
 
     private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
 
@@ -65,8 +65,8 @@ public class EndPointReference implements org.apache.thrift.TBase<EndPointRefere
       switch(fieldId) {
         case 1: // ADDRESS
           return ADDRESS;
-        case 2: // REFERENCE_PARAMETERS
-          return REFERENCE_PARAMETERS;
+        case 2: // PRIVATE_INSTANCE
+          return PRIVATE_INSTANCE;
         default:
           return null;
       }
@@ -107,13 +107,15 @@ public class EndPointReference implements org.apache.thrift.TBase<EndPointRefere
   }
 
   // isset id assignments
+  private static final int __PRIVATEINSTANCE_ISSET_ID = 0;
+  private byte __isset_bitfield = 0;
   public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
   static {
     Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
     tmpMap.put(_Fields.ADDRESS, new org.apache.thrift.meta_data.FieldMetaData("address", org.apache.thrift.TFieldRequirementType.REQUIRED, 
         new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
-    tmpMap.put(_Fields.REFERENCE_PARAMETERS, new org.apache.thrift.meta_data.FieldMetaData("reference_parameters", org.apache.thrift.TFieldRequirementType.REQUIRED, 
-        new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, ReferenceParameters.class)));
+    tmpMap.put(_Fields.PRIVATE_INSTANCE, new org.apache.thrift.meta_data.FieldMetaData("privateInstance", org.apache.thrift.TFieldRequirementType.REQUIRED, 
+        new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
     metaDataMap = Collections.unmodifiableMap(tmpMap);
     org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(EndPointReference.class, metaDataMap);
   }
@@ -123,23 +125,23 @@ public class EndPointReference implements org.apache.thrift.TBase<EndPointRefere
 
   public EndPointReference(
     String address,
-    ReferenceParameters reference_parameters)
+    int privateInstance)
   {
     this();
     this.address = address;
-    this.reference_parameters = reference_parameters;
+    this.privateInstance = privateInstance;
+    setPrivateInstanceIsSet(true);
   }
 
   /**
    * Performs a deep copy on <i>other</i>.
    */
   public EndPointReference(EndPointReference other) {
+    __isset_bitfield = other.__isset_bitfield;
     if (other.isSetAddress()) {
       this.address = other.address;
     }
-    if (other.isSetReference_parameters()) {
-      this.reference_parameters = new ReferenceParameters(other.reference_parameters);
-    }
+    this.privateInstance = other.privateInstance;
   }
 
   public EndPointReference deepCopy() {
@@ -149,7 +151,8 @@ public class EndPointReference implements org.apache.thrift.TBase<EndPointRefere
   @Override
   public void clear() {
     this.address = null;
-    this.reference_parameters = null;
+    setPrivateInstanceIsSet(false);
+    this.privateInstance = 0;
   }
 
   public String getAddress() {
@@ -176,28 +179,27 @@ public class EndPointReference implements org.apache.thrift.TBase<EndPointRefere
     }
   }
 
-  public ReferenceParameters getReference_parameters() {
-    return this.reference_parameters;
+  public int getPrivateInstance() {
+    return this.privateInstance;
   }
 
-  public EndPointReference setReference_parameters(ReferenceParameters reference_parameters) {
-    this.reference_parameters = reference_parameters;
+  public EndPointReference setPrivateInstance(int privateInstance) {
+    this.privateInstance = privateInstance;
+    setPrivateInstanceIsSet(true);
     return this;
   }
 
-  public void unsetReference_parameters() {
-    this.reference_parameters = null;
+  public void unsetPrivateInstance() {
+    __isset_bitfield = EncodingUtils.clearBit(__isset_bitfield, __PRIVATEINSTANCE_ISSET_ID);
   }
 
-  /** Returns true if field reference_parameters is set (has been assigned a value) and false otherwise */
-  public boolean isSetReference_parameters() {
-    return this.reference_parameters != null;
+  /** Returns true if field privateInstance is set (has been assigned a value) and false otherwise */
+  public boolean isSetPrivateInstance() {
+    return EncodingUtils.testBit(__isset_bitfield, __PRIVATEINSTANCE_ISSET_ID);
   }
 
-  public void setReference_parametersIsSet(boolean value) {
-    if (!value) {
-      this.reference_parameters = null;
-    }
+  public void setPrivateInstanceIsSet(boolean value) {
+    __isset_bitfield = EncodingUtils.setBit(__isset_bitfield, __PRIVATEINSTANCE_ISSET_ID, value);
   }
 
   public void setFieldValue(_Fields field, Object value) {
@@ -210,11 +212,11 @@ public class EndPointReference implements org.apache.thrift.TBase<EndPointRefere
       }
       break;
 
-    case REFERENCE_PARAMETERS:
+    case PRIVATE_INSTANCE:
       if (value == null) {
-        unsetReference_parameters();
+        unsetPrivateInstance();
       } else {
-        setReference_parameters((ReferenceParameters)value);
+        setPrivateInstance((Integer)value);
       }
       break;
 
@@ -226,8 +228,8 @@ public class EndPointReference implements org.apache.thrift.TBase<EndPointRefere
     case ADDRESS:
       return getAddress();
 
-    case REFERENCE_PARAMETERS:
-      return getReference_parameters();
+    case PRIVATE_INSTANCE:
+      return Integer.valueOf(getPrivateInstance());
 
     }
     throw new IllegalStateException();
@@ -242,8 +244,8 @@ public class EndPointReference implements org.apache.thrift.TBase<EndPointRefere
     switch (field) {
     case ADDRESS:
       return isSetAddress();
-    case REFERENCE_PARAMETERS:
-      return isSetReference_parameters();
+    case PRIVATE_INSTANCE:
+      return isSetPrivateInstance();
     }
     throw new IllegalStateException();
   }
@@ -270,12 +272,12 @@ public class EndPointReference implements org.apache.thrift.TBase<EndPointRefere
         return false;
     }
 
-    boolean this_present_reference_parameters = true && this.isSetReference_parameters();
-    boolean that_present_reference_parameters = true && that.isSetReference_parameters();
-    if (this_present_reference_parameters || that_present_reference_parameters) {
-      if (!(this_present_reference_parameters && that_present_reference_parameters))
+    boolean this_present_privateInstance = true;
+    boolean that_present_privateInstance = true;
+    if (this_present_privateInstance || that_present_privateInstance) {
+      if (!(this_present_privateInstance && that_present_privateInstance))
         return false;
-      if (!this.reference_parameters.equals(that.reference_parameters))
+      if (this.privateInstance != that.privateInstance)
         return false;
     }
 
@@ -305,12 +307,12 @@ public class EndPointReference implements org.apache.thrift.TBase<EndPointRefere
         return lastComparison;
       }
     }
-    lastComparison = Boolean.valueOf(isSetReference_parameters()).compareTo(typedOther.isSetReference_parameters());
+    lastComparison = Boolean.valueOf(isSetPrivateInstance()).compareTo(typedOther.isSetPrivateInstance());
     if (lastComparison != 0) {
       return lastComparison;
     }
-    if (isSetReference_parameters()) {
-      lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.reference_parameters, typedOther.reference_parameters);
+    if (isSetPrivateInstance()) {
+      lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.privateInstance, typedOther.privateInstance);
       if (lastComparison != 0) {
         return lastComparison;
       }
@@ -322,11 +324,11 @@ public class EndPointReference implements org.apache.thrift.TBase<EndPointRefere
     return _Fields.findByThriftId(fieldId);
   }
 
-  public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+  public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
     schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
   }
 
-  public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+  public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
     schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
   }
 
@@ -343,43 +345,36 @@ public class EndPointReference implements org.apache.thrift.TBase<EndPointRefere
     }
     first = false;
     if (!first) sb.append(", ");
-    sb.append("reference_parameters:");
-    if (this.reference_parameters == null) {
-      sb.append("null");
-    } else {
-      sb.append(this.reference_parameters);
-    }
+    sb.append("privateInstance:");
+    sb.append(this.privateInstance);
     first = false;
     sb.append(")");
     return sb.toString();
   }
 
-  public void validate() throws org.apache.thrift.TException {
+  public void validate() throws TException {
     // check for required fields
     if (address == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'address' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'address' was not present! Struct: " + toString());
     }
-    if (reference_parameters == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'reference_parameters' was not present! Struct: " + toString());
-    }
+    // alas, we cannot check 'privateInstance' because it's a primitive and you chose the non-beans generator.
     // check for sub-struct validity
-    if (reference_parameters != null) {
-      reference_parameters.validate();
-    }
   }
 
   private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
     try {
       write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-    } catch (org.apache.thrift.TException te) {
+    } catch (TException te) {
       throw new java.io.IOException(te);
     }
   }
 
   private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
     try {
+      // it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor.
+      __isset_bitfield = 0;
       read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-    } catch (org.apache.thrift.TException te) {
+    } catch (TException te) {
       throw new java.io.IOException(te);
     }
   }
@@ -392,7 +387,7 @@ public class EndPointReference implements org.apache.thrift.TBase<EndPointRefere
 
   private static class EndPointReferenceStandardScheme extends StandardScheme<EndPointReference> {
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot, EndPointReference struct) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot, EndPointReference struct) throws TException {
       org.apache.thrift.protocol.TField schemeField;
       iprot.readStructBegin();
       while (true)
@@ -410,11 +405,10 @@ public class EndPointReference implements org.apache.thrift.TBase<EndPointRefere
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
             break;
-          case 2: // REFERENCE_PARAMETERS
-            if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
-              struct.reference_parameters = new ReferenceParameters();
-              struct.reference_parameters.read(iprot);
-              struct.setReference_parametersIsSet(true);
+          case 2: // PRIVATE_INSTANCE
+            if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
+              struct.privateInstance = iprot.readI32();
+              struct.setPrivateInstanceIsSet(true);
             } else { 
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
@@ -427,10 +421,13 @@ public class EndPointReference implements org.apache.thrift.TBase<EndPointRefere
       iprot.readStructEnd();
 
       // check for required fields of primitive type, which can't be checked in the validate method
+      if (!struct.isSetPrivateInstance()) {
+        throw new TProtocolException("Required field 'privateInstance' was not found in serialized data! Struct: " + toString());
+      }
       struct.validate();
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot, EndPointReference struct) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot, EndPointReference struct) throws TException {
       struct.validate();
 
       oprot.writeStructBegin(STRUCT_DESC);
@@ -439,11 +436,9 @@ public class EndPointReference implements org.apache.thrift.TBase<EndPointRefere
         oprot.writeString(struct.address);
         oprot.writeFieldEnd();
       }
-      if (struct.reference_parameters != null) {
-        oprot.writeFieldBegin(REFERENCE_PARAMETERS_FIELD_DESC);
-        struct.reference_parameters.write(oprot);
-        oprot.writeFieldEnd();
-      }
+      oprot.writeFieldBegin(PRIVATE_INSTANCE_FIELD_DESC);
+      oprot.writeI32(struct.privateInstance);
+      oprot.writeFieldEnd();
       oprot.writeFieldStop();
       oprot.writeStructEnd();
     }
@@ -459,20 +454,19 @@ public class EndPointReference implements org.apache.thrift.TBase<EndPointRefere
   private static class EndPointReferenceTupleScheme extends TupleScheme<EndPointReference> {
 
     @Override
-    public void write(org.apache.thrift.protocol.TProtocol prot, EndPointReference struct) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol prot, EndPointReference struct) throws TException {
       TTupleProtocol oprot = (TTupleProtocol) prot;
       oprot.writeString(struct.address);
-      struct.reference_parameters.write(oprot);
+      oprot.writeI32(struct.privateInstance);
     }
 
     @Override
-    public void read(org.apache.thrift.protocol.TProtocol prot, EndPointReference struct) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol prot, EndPointReference struct) throws TException {
       TTupleProtocol iprot = (TTupleProtocol) prot;
       struct.address = iprot.readString();
       struct.setAddressIsSet(true);
-      struct.reference_parameters = new ReferenceParameters();
-      struct.reference_parameters.read(iprot);
-      struct.setReference_parametersIsSet(true);
+      struct.privateInstance = iprot.readI32();
+      struct.setPrivateInstanceIsSet(true);
     }
   }
 

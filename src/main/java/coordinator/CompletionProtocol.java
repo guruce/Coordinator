@@ -1,4 +1,4 @@
-package acidoth.coordinator;
+package coordinator;
 
 import javax.transaction.*;
 

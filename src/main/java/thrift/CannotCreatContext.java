@@ -4,7 +4,7 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-package acidoth.thrift.xa;
+package thrift;
 
 import org.apache.thrift.scheme.IScheme;
 import org.apache.thrift.scheme.SchemeFactory;
@@ -30,8 +30,8 @@ import java.util.Arrays;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class InvalidState extends TException implements org.apache.thrift.TBase<InvalidState, InvalidState._Fields>, java.io.Serializable, Cloneable {
-  private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("InvalidState");
+public class CannotCreatContext extends TException implements org.apache.thrift.TBase<CannotCreatContext, CannotCreatContext._Fields>, java.io.Serializable, Cloneable {
+  private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("CannotCreatContext");
 
   private static final org.apache.thrift.protocol.TField CODE_FIELD_DESC = new org.apache.thrift.protocol.TField("code", org.apache.thrift.protocol.TType.STRING, (short)1);
   private static final org.apache.thrift.protocol.TField SUBCODE_FIELD_DESC = new org.apache.thrift.protocol.TField("subcode", org.apache.thrift.protocol.TType.STRING, (short)2);
@@ -40,8 +40,8 @@ public class InvalidState extends TException implements org.apache.thrift.TBase<
 
   private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
   static {
-    schemes.put(StandardScheme.class, new InvalidStateStandardSchemeFactory());
-    schemes.put(TupleScheme.class, new InvalidStateTupleSchemeFactory());
+    schemes.put(StandardScheme.class, new CannotCreatContextStandardSchemeFactory());
+    schemes.put(TupleScheme.class, new CannotCreatContextTupleSchemeFactory());
   }
 
   public String code; // required
@@ -129,13 +129,13 @@ public class InvalidState extends TException implements org.apache.thrift.TBase<
     tmpMap.put(_Fields.DETAIL, new org.apache.thrift.meta_data.FieldMetaData("detail", org.apache.thrift.TFieldRequirementType.REQUIRED, 
         new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
     metaDataMap = Collections.unmodifiableMap(tmpMap);
-    org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(InvalidState.class, metaDataMap);
+    org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(CannotCreatContext.class, metaDataMap);
   }
 
-  public InvalidState() {
+  public CannotCreatContext() {
   }
 
-  public InvalidState(
+  public CannotCreatContext(
     String code,
     String subcode,
     String reason,
@@ -151,7 +151,7 @@ public class InvalidState extends TException implements org.apache.thrift.TBase<
   /**
    * Performs a deep copy on <i>other</i>.
    */
-  public InvalidState(InvalidState other) {
+  public CannotCreatContext(CannotCreatContext other) {
     if (other.isSetCode()) {
       this.code = other.code;
     }
@@ -166,8 +166,8 @@ public class InvalidState extends TException implements org.apache.thrift.TBase<
     }
   }
 
-  public InvalidState deepCopy() {
-    return new InvalidState(this);
+  public CannotCreatContext deepCopy() {
+    return new CannotCreatContext(this);
   }
 
   @Override
@@ -182,7 +182,7 @@ public class InvalidState extends TException implements org.apache.thrift.TBase<
     return this.code;
   }
 
-  public InvalidState setCode(String code) {
+  public CannotCreatContext setCode(String code) {
     this.code = code;
     return this;
   }
@@ -206,7 +206,7 @@ public class InvalidState extends TException implements org.apache.thrift.TBase<
     return this.subcode;
   }
 
-  public InvalidState setSubcode(String subcode) {
+  public CannotCreatContext setSubcode(String subcode) {
     this.subcode = subcode;
     return this;
   }
@@ -230,7 +230,7 @@ public class InvalidState extends TException implements org.apache.thrift.TBase<
     return this.reason;
   }
 
-  public InvalidState setReason(String reason) {
+  public CannotCreatContext setReason(String reason) {
     this.reason = reason;
     return this;
   }
@@ -254,7 +254,7 @@ public class InvalidState extends TException implements org.apache.thrift.TBase<
     return this.detail;
   }
 
-  public InvalidState setDetail(String detail) {
+  public CannotCreatContext setDetail(String detail) {
     this.detail = detail;
     return this;
   }
@@ -352,12 +352,12 @@ public class InvalidState extends TException implements org.apache.thrift.TBase<
   public boolean equals(Object that) {
     if (that == null)
       return false;
-    if (that instanceof InvalidState)
-      return this.equals((InvalidState)that);
+    if (that instanceof CannotCreatContext)
+      return this.equals((CannotCreatContext)that);
     return false;
   }
 
-  public boolean equals(InvalidState that) {
+  public boolean equals(CannotCreatContext that) {
     if (that == null)
       return false;
 
@@ -405,13 +405,13 @@ public class InvalidState extends TException implements org.apache.thrift.TBase<
     return 0;
   }
 
-  public int compareTo(InvalidState other) {
+  public int compareTo(CannotCreatContext other) {
     if (!getClass().equals(other.getClass())) {
       return getClass().getName().compareTo(other.getClass().getName());
     }
 
     int lastComparison = 0;
-    InvalidState typedOther = (InvalidState)other;
+    CannotCreatContext typedOther = (CannotCreatContext)other;
 
     lastComparison = Boolean.valueOf(isSetCode()).compareTo(typedOther.isSetCode());
     if (lastComparison != 0) {
@@ -460,17 +460,17 @@ public class InvalidState extends TException implements org.apache.thrift.TBase<
     return _Fields.findByThriftId(fieldId);
   }
 
-  public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+  public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
     schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
   }
 
-  public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+  public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
     schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
   }
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder("InvalidState(");
+    StringBuilder sb = new StringBuilder("CannotCreatContext(");
     boolean first = true;
 
     sb.append("code:");
@@ -508,19 +508,19 @@ public class InvalidState extends TException implements org.apache.thrift.TBase<
     return sb.toString();
   }
 
-  public void validate() throws org.apache.thrift.TException {
+  public void validate() throws TException {
     // check for required fields
     if (code == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'code' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'code' was not present! Struct: " + toString());
     }
     if (subcode == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'subcode' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'subcode' was not present! Struct: " + toString());
     }
     if (reason == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'reason' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'reason' was not present! Struct: " + toString());
     }
     if (detail == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'detail' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'detail' was not present! Struct: " + toString());
     }
     // check for sub-struct validity
   }
@@ -528,7 +528,7 @@ public class InvalidState extends TException implements org.apache.thrift.TBase<
   private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
     try {
       write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-    } catch (org.apache.thrift.TException te) {
+    } catch (TException te) {
       throw new java.io.IOException(te);
     }
   }
@@ -536,20 +536,20 @@ public class InvalidState extends TException implements org.apache.thrift.TBase<
   private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
     try {
       read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-    } catch (org.apache.thrift.TException te) {
+    } catch (TException te) {
       throw new java.io.IOException(te);
     }
   }
 
-  private static class InvalidStateStandardSchemeFactory implements SchemeFactory {
-    public InvalidStateStandardScheme getScheme() {
-      return new InvalidStateStandardScheme();
+  private static class CannotCreatContextStandardSchemeFactory implements SchemeFactory {
+    public CannotCreatContextStandardScheme getScheme() {
+      return new CannotCreatContextStandardScheme();
     }
   }
 
-  private static class InvalidStateStandardScheme extends StandardScheme<InvalidState> {
+  private static class CannotCreatContextStandardScheme extends StandardScheme<CannotCreatContext> {
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot, InvalidState struct) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot, CannotCreatContext struct) throws TException {
       org.apache.thrift.protocol.TField schemeField;
       iprot.readStructBegin();
       while (true)
@@ -602,7 +602,7 @@ public class InvalidState extends TException implements org.apache.thrift.TBase<
       struct.validate();
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot, InvalidState struct) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot, CannotCreatContext struct) throws TException {
       struct.validate();
 
       oprot.writeStructBegin(STRUCT_DESC);
@@ -632,16 +632,16 @@ public class InvalidState extends TException implements org.apache.thrift.TBase<
 
   }
 
-  private static class InvalidStateTupleSchemeFactory implements SchemeFactory {
-    public InvalidStateTupleScheme getScheme() {
-      return new InvalidStateTupleScheme();
+  private static class CannotCreatContextTupleSchemeFactory implements SchemeFactory {
+    public CannotCreatContextTupleScheme getScheme() {
+      return new CannotCreatContextTupleScheme();
     }
   }
 
-  private static class InvalidStateTupleScheme extends TupleScheme<InvalidState> {
+  private static class CannotCreatContextTupleScheme extends TupleScheme<CannotCreatContext> {
 
     @Override
-    public void write(org.apache.thrift.protocol.TProtocol prot, InvalidState struct) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol prot, CannotCreatContext struct) throws TException {
       TTupleProtocol oprot = (TTupleProtocol) prot;
       oprot.writeString(struct.code);
       oprot.writeString(struct.subcode);
@@ -650,7 +650,7 @@ public class InvalidState extends TException implements org.apache.thrift.TBase<
     }
 
     @Override
-    public void read(org.apache.thrift.protocol.TProtocol prot, InvalidState struct) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol prot, CannotCreatContext struct) throws TException {
       TTupleProtocol iprot = (TTupleProtocol) prot;
       struct.code = iprot.readString();
       struct.setCodeIsSet(true);

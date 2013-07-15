@@ -8,8 +8,6 @@ package server;
  * To change this template use File | Settings | File Templates.
  */
 public class Constants {
-    public static final String applicationSideServerAddress = "localhost";
-    public static final String participantSideServerAddress = "localhost";
-    public static final int applicationSidePortNumber = 9090;
-    public static final int participantSidePortNumber = 9091;
+    public static final String coordinatorServerAddress = "localhost";
+    public static final int coordinatorServerPortNumber = 9090;
 }

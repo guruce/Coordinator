@@ -34,15 +34,8 @@ public class TransactionHandler {
      * Initiate Atomikos and hashMap
      */
     private TransactionHandler() {
-        try {
-            userTransactionManager = new UserTransactionManager();
-            userTransactionManager.begin();
-            transactionMap = new HashMap();
-        } catch (NotSupportedException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        } catch (SystemException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
+        userTransactionManager = new UserTransactionManager();
+        transactionMap = new HashMap();
     }
 
     /**
@@ -50,14 +43,20 @@ public class TransactionHandler {
      * @return String transactionID
      */
     public String createTransaction() {
+
         try {
+            userTransactionManager.begin();
             Transaction transaction = userTransactionManager.getTransaction();
-            String transactionID = this.keyGenerator(transaction.hashCode());
+            String transactionID = transaction.toString();
             transactionMap.put(transactionID, transaction);
             return transactionID;
+
         } catch (SystemException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             return null;
+        } catch (NotSupportedException e) {
+            e.printStackTrace();
+            return null; //To change body of catch statement use File | Settings | File Templates.
         }
     }
 
@@ -68,16 +67,6 @@ public class TransactionHandler {
      */
     public Transaction getTransaction(String transactionID) {
         return (Transaction) transactionMap.get(transactionID);
-    }
-
-    /**
-     * Get generated key from nano time and transaction object hashCode
-     * @param hashCode
-     * @return String key
-     */
-    private String keyGenerator(int hashCode) {
-        String key = Long.toString(System.nanoTime()).concat(Integer.toString(hashCode));
-        return key;
     }
 
 }

@@ -1,0 +1,3 @@
+Newly build the atomikos based on 3.8.0
+
+Atomikos com.atomikos.icatch.jta.UserTransactionManager class has been changed inorder to fetch already created transaction objects, which are stored into TransactionManagerImp-txmap_ (hashmap) with tid as key.

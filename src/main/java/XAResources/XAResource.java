@@ -1,9 +1,9 @@
 package XAResources;
 
-import thrift.ServiceResponse;
-import client.ParticipantServiceClient;
+import coordinationclient.CoordinationClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import thriftgen.coordination.ServiceResponse;
 
 import javax.transaction.xa.XAException;
 import javax.transaction.xa.Xid;
@@ -18,7 +18,7 @@ import javax.transaction.xa.Xid;
  */
 public class XAResource implements javax.transaction.xa.XAResource {
 
-    private ParticipantServiceClient participantServiceClient;
+    private CoordinationClient coordinationClient;
     private String transactionId;
 
     /**
@@ -27,7 +27,7 @@ public class XAResource implements javax.transaction.xa.XAResource {
      * @param participantPort     participant server port number
      */
     public XAResource(String participantAddress, int participantPort){
-        participantServiceClient = new ParticipantServiceClient(participantAddress, participantPort);
+        coordinationClient = new CoordinationClient(participantAddress, participantPort);
     }
 
     /**
@@ -37,8 +37,11 @@ public class XAResource implements javax.transaction.xa.XAResource {
      * @throws XAException
      */
     public void commit(Xid xid, boolean b) throws XAException {
-        participantServiceClient.commit(transactionId);
-        //To change body of implemented methods use File | Settings | File Templates.
+        Logger logger = LoggerFactory.getLogger(XAResource.class);
+        logger.info("Commit called for " + transactionId);
+        System.out.println("Commit called for--------------------------------" + transactionId);
+        coordinationClient.commit(transactionId, b);
+        logger.info(transactionId + " committed successfully");
     }
 
     /**
@@ -66,7 +69,7 @@ public class XAResource implements javax.transaction.xa.XAResource {
      * @throws XAException
      */
     public int getTransactionTimeout() throws XAException {
-        return 0;  //To change body of implemented methods use File | Settings | File Templates.
+        return 0;
     }
 
     /**
@@ -76,7 +79,7 @@ public class XAResource implements javax.transaction.xa.XAResource {
      * @throws XAException
      */
     public boolean isSameRM(javax.transaction.xa.XAResource xaResource) throws XAException {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+        return false;
     }
 
     /**
@@ -86,18 +89,19 @@ public class XAResource implements javax.transaction.xa.XAResource {
      * @throws XAException
      */
     public int prepare(Xid xid) throws XAException {
-
-        System.out.println("successfully prepare called for " + transactionId);
-        ServiceResponse pcResponse = participantServiceClient.prepare(transactionId);
+        ServiceResponse pcResponse = coordinationClient.prepare(transactionId);
         Logger logger = LoggerFactory.getLogger(XAResource.class);
-
+        logger.info("Prepare called for " + transactionId);
+        System.out.println("Prepare called for++++++++++++++++" + transactionId);
         if (pcResponse == ServiceResponse.prepared) {
-            logger.info(transactionId + " successfully prepared");
+            logger.info(transactionId + " prepared successfully");
             return XAResource.XA_OK;
         }
-        else if(pcResponse == ServiceResponse.readOnly)
+        else if(pcResponse == ServiceResponse.readOnly){
+            logger.info(transactionId + " Prepare failed");
             return XAResource.XA_RDONLY;
-        else throw new XAException();//To change body of implemented methods use File | Settings | File Templates.
+        }
+        else throw new XAException();
     }
 
     /**
@@ -107,7 +111,7 @@ public class XAResource implements javax.transaction.xa.XAResource {
      * @throws XAException
      */
     public Xid[] recover(int i) throws XAException {
-        return new Xid[0];  //To change body of implemented methods use File | Settings | File Templates.
+        return new Xid[0];
     }
 
     /**
@@ -116,8 +120,7 @@ public class XAResource implements javax.transaction.xa.XAResource {
      * @throws XAException
      */
     public void rollback(Xid xid) throws XAException {
-        participantServiceClient.rollback(transactionId);
-        //To change body of implemented methods use File | Settings | File Templates.
+        coordinationClient.rollback(transactionId);
     }
 
     /**
@@ -127,7 +130,7 @@ public class XAResource implements javax.transaction.xa.XAResource {
      * @throws XAException
      */
     public boolean setTransactionTimeout(int i) throws XAException {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+        return false;
     }
 
     /**
@@ -137,7 +140,7 @@ public class XAResource implements javax.transaction.xa.XAResource {
      * @throws XAException
      */
     public void start(Xid xid, int i) throws XAException {
-        //To change body of implemented methods use File | Settings | File Templates.
+
     }
 
     /**

@@ -1,5 +1,7 @@
 package coordinator;
 
+import thriftgen.completion.ServiceResponse;
+
 import javax.transaction.*;
 
 /**
@@ -7,28 +9,35 @@ import javax.transaction.*;
  * User: guruce
  * Date: 6/28/13
  * Time: 3:00 PM
- * To change this template use File | Settings | File Templates.
+ *
+ * CompletionProtocol implementation in WS-Coordination.
  */
 public class CompletionProtocol {
 
     /**
-     * WS-AT completion protocol to starts 2pc protocol
+     * WS-AT commit call in completion protocol to starts 2pc protocol
      * @param transactionID
      * @return
      */
-    public void commit(String transactionID) {
+    public ServiceResponse commit(String transactionID) throws SystemException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
+        Transaction transaction = TransactionHandler.getInstance().getTransaction(transactionID);
+        transaction.commit();
+        return ServiceResponse.commited;
+    }
+
+    /**
+     * WS-AT abort call in completion protocol
+     * @param transactionId
+     * @return
+     */
+    public ServiceResponse abort(String transactionId){
         try {
-            Transaction transaction = TransactionHandler.getInstance().getTransaction(transactionID);
-            transaction.commit();
-        } catch (HeuristicMixedException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        } catch (HeuristicRollbackException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        } catch (RollbackException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            Transaction transaction = TransactionHandler.getInstance().getTransaction(transactionId);
+            transaction.rollback();
         } catch (SystemException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         }
+        return ServiceResponse.aborted;
     }
 
 }

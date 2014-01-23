@@ -11,7 +11,9 @@ import java.util.HashMap;
  * User: guruce
  * Date: 6/28/13
  * Time: 1:51 PM
- * To change this template use File | Settings | File Templates.
+ *
+ * This class will create only a single object to handle all the transaction in the coordinator.
+ * It contains Atomikos transaction object which handle all the operations with Atomikos.
  */
 @SuppressWarnings("JavaDoc")
 public class TransactionHandler {
@@ -19,7 +21,6 @@ public class TransactionHandler {
     // Create a hash map to store transaction objects
     private HashMap transactionMap;
     private UserTransactionManager userTransactionManager;
-    private TransactionHandler transactionHandler;
     private static TransactionHandler instance = new TransactionHandler();
 
     /**
@@ -31,15 +32,14 @@ public class TransactionHandler {
     }
 
     /**
-     * Initiate Atomikos and hashMap
+     * Initiate Atomikos tm
      */
     private TransactionHandler() {
         userTransactionManager = new UserTransactionManager();
-        transactionMap = new HashMap();
     }
 
     /**
-     * Create Transaction object for single multiple transaction and put it into map and return map key
+     * Create Transaction object for single multiple transaction and return map key
      * @return String transactionID
      */
     public String createTransaction() {
@@ -48,7 +48,6 @@ public class TransactionHandler {
             userTransactionManager.begin();
             Transaction transaction = userTransactionManager.getTransaction();
             String transactionID = transaction.toString();
-            transactionMap.put(transactionID, transaction);
             return transactionID;
 
         } catch (SystemException e) {
@@ -61,12 +60,12 @@ public class TransactionHandler {
     }
 
     /**
-     * Push transaction object from map with key
+     * Push transaction object from tm
      * @param transactionID
      * @return Transaction
      */
-    public Transaction getTransaction(String transactionID) {
-        return (Transaction) transactionMap.get(transactionID);
+    public Transaction getTransaction(String transactionID) throws SystemException{
+        return (Transaction) userTransactionManager.getTransaction(transactionID) ;
     }
 
 }

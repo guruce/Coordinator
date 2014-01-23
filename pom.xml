@@ -14,10 +14,17 @@
             <artifactId>transactions</artifactId>
             <version>3.8.0</version>
         </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.atomikos</groupId>-->
+            <!--<artifactId>transactions-jta</artifactId>-->
+            <!--<version>3.8.0</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>com.atomikos</groupId>
             <artifactId>transactions-jta</artifactId>
             <version>3.8.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/transactions-jta-3.8.0.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>javax.transaction</groupId>
@@ -50,6 +57,18 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.easymock</groupId>
+            <artifactId>easymock</artifactId>
+            <version>3.2</version>
         </dependency>
     </dependencies>
 
@@ -88,7 +107,7 @@
                 <configuration>
                         <archive>
                             <manifest>
-                                <mainClass>Transaction.Main</mainClass>
+                                <mainClass>main.Main</mainClass>
                             </manifest>
                         </archive>
                     <descriptorRefs>

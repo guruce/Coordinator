@@ -5,7 +5,8 @@ package coordinator;
  * User: guruce
  * Date: 6/28/13
  * Time: 2:57 PM
- * To change this template use File | Settings | File Templates.
+ *
+ * Implementation of ActivationService in WS-Coordination.
  */
 public class ActivationService {
 

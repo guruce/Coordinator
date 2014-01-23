@@ -10,7 +10,8 @@ import javax.transaction.Transaction;
  * User: guruce
  * Date: 6/28/13
  * Time: 2:58 PM
- * To change this template use File | Settings | File Templates.
+ *
+ * RegistrationService implementation in WS-Coordination.
  */
 public class RegistrationService {
 
@@ -22,19 +23,12 @@ public class RegistrationService {
      * @param participantPort
      * @return
      */
-    public boolean register(String transactionID, String protocolIdentifier, String participantAddr, int participantPort) {
+    public boolean register(String transactionID, String protocolIdentifier, String participantAddr, int participantPort) throws SystemException, RollbackException {
         boolean registerResult = false;
-        try {
-            Transaction transaction = TransactionHandler.getInstance().getTransaction(transactionID);
-            XAResource xaResource = new XAResource(participantAddr, participantPort);
-            xaResource.setTransactionId(transactionID);
-
-            registerResult = transaction.enlistResource(xaResource);
-        } catch (RollbackException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        } catch (SystemException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
+        Transaction transaction = TransactionHandler.getInstance().getTransaction(transactionID);
+        XAResource xaResource = new XAResource(participantAddr, participantPort);
+        xaResource.setTransactionId(transactionID);
+        registerResult = transaction.enlistResource(xaResource);
         return registerResult;
     }
 

@@ -1,12 +1,11 @@
-package tests;
 
 import coordinator.ActivationService;
 import coordinator.TransactionHandler;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
-import javax.transaction.SystemException;
 import javax.transaction.Transaction;
 
 import static org.junit.Assert.assertEquals;
@@ -20,6 +19,7 @@ import static org.junit.Assert.assertTrue;
  * Time: 7:33 AM
  * To change this template use File | Settings | File Templates.
  */
+
 public class ActivationServiceTest {
 
     ActivationService activationService;
@@ -35,12 +35,14 @@ public class ActivationServiceTest {
     }
 
     @Test
+    @Category( InitiatorTestSuite.class)
     public void testCreateCoordinationContextIsString() {
         String tid = activationService.createCoordinationContext();
         assertTrue(tid instanceof String);
     }
 
     @Test
+    @Category( InitiatorTestSuite.class)
     public void testCreateCoordinationContextWithTransactionObject() throws Exception {
         String tid = activationService.createCoordinationContext();
         Transaction transaction = TransactionHandler.getInstance().getTransaction(tid);
@@ -48,6 +50,7 @@ public class ActivationServiceTest {
     }
 
     @Test
+    @Category( InitiatorTestSuite.class)
     public void testTransactionForInvalidCoordContext() throws Exception {
         String tid = "INVALID_TID";
         Transaction transaction = TransactionHandler.getInstance().getTransaction(tid);
@@ -55,6 +58,7 @@ public class ActivationServiceTest {
     }
 
     @Test
+    @Category( InitiatorTestSuite.class)
     public void testCreateCoordinationContextIdSize() {
         String tid = activationService.createCoordinationContext();
         assertEquals(17, tid.length());

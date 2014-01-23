@@ -1,4 +1,4 @@
-package tests;
+
 
 import org.junit.After;
 import org.junit.Before;
@@ -8,6 +8,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import coordinator.TransactionHandler;
+import org.junit.experimental.categories.Category;
 
 import javax.transaction.Transaction;
 
@@ -31,12 +32,14 @@ public class TransactionHandlerTest {
     }
 
     @Test
+    @Category( ParticipantTestSuite.class)
     public void testGetInstance() throws Exception {
         TransactionHandler transactionHandler = TransactionHandler.getInstance();
         assertTrue(transactionHandler instanceof TransactionHandler);
     }
 
     @Test
+    @Category( ParticipantTestSuite.class)
     public void testCreateTransactionIsString() throws Exception {
         TransactionHandler transactionHandler = TransactionHandler.getInstance();
         String tid = transactionHandler.createTransaction();
@@ -44,6 +47,7 @@ public class TransactionHandlerTest {
     }
 
     @Test
+    @Category( ParticipantTestSuite.class)
     public void testCreateTransactionIsTransactionObj() throws Exception {
         TransactionHandler transactionHandler = TransactionHandler.getInstance();
         String tid = transactionHandler.createTransaction();
@@ -52,6 +56,7 @@ public class TransactionHandlerTest {
     }
 
     @Test
+    @Category( ParticipantTestSuite.class)
     public void testGetTransaction() throws Exception {
         TransactionHandler transactionHandler = TransactionHandler.getInstance();
         String tid = transactionHandler.createTransaction();

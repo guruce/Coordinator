@@ -1,10 +1,5 @@
 package tests.sample2pc;
 
-import coordinationclient.CoordinationClient;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import thriftgen.coordination.ServiceResponse;
-
 import javax.transaction.xa.XAException;
 import javax.transaction.xa.Xid;
 

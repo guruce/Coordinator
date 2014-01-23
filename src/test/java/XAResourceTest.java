@@ -1,5 +1,10 @@
 package tests;
 
+import coordinator.ActivationService;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -11,16 +16,10 @@ import static org.junit.Assert.assertTrue;
  */
 public class XAResourceTest {
 
-    /*
-    String tid;
-
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         ActivationService activationService;
         activationService = new ActivationService();
-        tid = activationService.createCoordinationContext();
-        RegistrationService registrationService = new RegistrationService();
-        registrationService.register(tid, "AT", "localhost", Constants.participantServerPortNumber1);
     }
 
     @After
@@ -28,13 +27,9 @@ public class XAResourceTest {
 
     }
 
-    @Test
-    public void testXAPrepare() throws HeuristicRollbackException, HeuristicMixedException, RollbackException, SystemException {
-        ParticipantXAServer participantXAServer = new ParticipantXAServer();
-        participantXAServer.startServer(new AcidothParticipant2PCServices.Processor<ParticipantHandler>(new ParticipantHandler()));
+    /*@Test
+    public void test() {
 
-        CompletionProtocol completionProtocol = new CompletionProtocol();
-        completionProtocol.commit(tid);
+        assertTrue(tid instanceof String);
     }*/
-
 }

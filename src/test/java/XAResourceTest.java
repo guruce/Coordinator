@@ -1,21 +1,5 @@
 package tests;
 
-import coordinator.ActivationService;
-import coordinator.CompletionProtocol;
-import coordinator.RegistrationService;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import tests.mockParticipantServer.Constants;
-import tests.mockParticipantServer.ParticipantHandler;
-import tests.mockParticipantServer.ParticipantXAServer;
-import tests.mockParticipantServer.thrift.AcidothParticipant2PCServices;
-
-import javax.transaction.HeuristicMixedException;
-import javax.transaction.HeuristicRollbackException;
-import javax.transaction.RollbackException;
-import javax.transaction.SystemException;
-
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -27,6 +11,7 @@ import static org.junit.Assert.assertTrue;
  */
 public class XAResourceTest {
 
+    /*
     String tid;
 
     @Before
@@ -43,7 +28,7 @@ public class XAResourceTest {
 
     }
 
-    /*@Test
+    @Test
     public void testXAPrepare() throws HeuristicRollbackException, HeuristicMixedException, RollbackException, SystemException {
         ParticipantXAServer participantXAServer = new ParticipantXAServer();
         participantXAServer.startServer(new AcidothParticipant2PCServices.Processor<ParticipantHandler>(new ParticipantHandler()));

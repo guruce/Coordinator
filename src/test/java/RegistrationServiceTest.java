@@ -36,7 +36,7 @@ public class RegistrationServiceTest {
     }
 
     @Test
-    @Category( InitiatorTestSuite.class)
+    @Category( ParticipantTestSuite.class)
     public void testRegister() throws RollbackException, SystemException {
         boolean success = registrationService.register(tid, "AT", "participant.addr", 9090);
         assertTrue(success);
